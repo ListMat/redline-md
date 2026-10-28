@@ -1,0 +1,2237 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export function MobileView() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  return (
+    <div className="w-full flex justify-center bg-[#08080A]">
+      <div className="w-full max-w-[390px] shrink-0">
+        <div
+      data-pencil-name="RedlineMD — Mobile"
+      className="box-border w-[390px] h-fit flex flex-col gap-0 justify-start items-start bg-[#08080A] overflow-hidden"
+    >
+      <div
+        data-pencil-name="M Nav"
+        className="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_20px] justify-between items-center"
+      >
+        <div
+          data-pencil-name="M Brand"
+          className="box-border w-fit shrink-0 h-fit flex flex-row gap-[7px] justify-start items-center"
+        >
+          <div
+            data-pencil-name="M Wordmark"
+            className="text-[17px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px] text-left [white-space:nowrap]"
+          >
+            REDLINE
+          </div>
+          <div
+            data-pencil-name="M Wordmark MD"
+            className="text-[17px]/[normal] box-border text-[#E03A2F] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px] text-left [white-space:nowrap]"
+          >
+            MD
+          </div>
+        </div>
+        <motion.button
+          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          aria-label="Toggle navigation menu"
+          data-pencil-name="M Menu Button"
+          className="cursor-pointer active:bg-[#1A1D24] box-border w-[36px] shrink-0 h-[36px] flex flex-row gap-0 justify-center items-center [outline:1px_solid_#FFFFFF1A] [outline-offset:-0.5px] rounded-[999px] bg-[#101216] transition-colors"
+        >
+          {mobileMenuOpen ? (
+            <svg
+              viewBox="0 0 16 16"
+              className="box-border w-[16px] shrink-0 h-[16px]"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 4L12 12M12 4L4 12"
+                stroke="#F6F5F3"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              data-pencil-name="M Menu Icon"
+              data-icon-name="menu"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[16px] shrink-0 h-[16px]"
+            >
+              <path
+                d="M2.2251 2.35156q-0.18115 0.02734-0.32129 0.18115-0.14014 0.15381-0.15381 0.35206 0 0.14014 0.06152 0.28027 0.06494 0.14014 0.19141 0.22217l0.02734 0.02734q0.05469 0.04443 0.2085 0.05811 0.22559 0.01367 1.03564 0.02734l7.45118 0q0.81006-0.01367 1.03564-0.02734 0.15381-0.01367 0.2085-0.05811l0.02734-0.02734q0.21191-0.14014 0.24609-0.36914 0.03418-0.23242-0.09912-0.43409-0.1333-0.20508-0.38281-0.23242-0.11279-0.02734-4.7749-0.02734-4.66211 0-4.76123 0.02734zm-0.09571 4.10156q-0.09912 0.04443-0.1914 0.12989-0.08887 0.08203-0.12647 0.16064-0.03418 0.0752-0.04101 0.11621-0.00684 0.04102-0.00684 0.14014 0 0.15381 0.04102 0.25293 0.11279 0.2085 0.3247 0.29394l0.09571 0.02735 9.5498 0 0.09571-0.02735q0.21192-0.08545 0.3247-0.29394 0.04102-0.09912 0.04102-0.25293 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.17431-0.11963-0.08203-0.0376-0.69727-0.0376l-4.18701 0-4.18701 0q-0.62891 0.01367-0.6836 0.02734zm0.06836 4.06055q-0.08545 0.02734-0.18457 0.09229-0.0957 0.06152-0.15039 0.1333-0.12646 0.16748-0.11279 0.38623 0.01367 0.21533 0.18115 0.36914 0.12646 0.12646 0.29395 0.15381 0.11279 0.02734 4.7749 0.02734 4.66211 0 4.7749-0.02734 0.16748-0.02734 0.29395-0.15381 0.22217-0.22559 0.16748-0.51953-0.05469-0.29395-0.35205-0.43408l-0.08203-0.02735-4.76123-0.01367q-4.77148 0-4.84327 0.01367z"
+                fill="#F6F5F3"
+              />
+            </svg>
+          )}
+        </motion.button>
+      </div>
+
+      {/* Full-screen Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[999] bg-[#08080A]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-8 overflow-y-auto"
+          >
+            {/* Top Bar inside Fullscreen Overlay */}
+            <div className="flex items-center justify-between w-full pb-6 border-b border-[#20242A]">
+              <div className="flex items-center gap-[7px]">
+                <span className="text-[19px] text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px]">
+                  REDLINE
+                </span>
+                <span className="text-[19px] text-[#E03A2F] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px]">
+                  MD
+                </span>
+              </div>
+
+              <motion.button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.08 }}
+                aria-label="Close navigation menu"
+                className="w-10 h-10 rounded-full bg-[#14161C] border border-[#2A2F36] flex items-center justify-center text-[#F6F5F3] hover:text-white cursor-pointer transition-colors shadow-sm"
+              >
+                <svg
+                  viewBox="0 0 16 16"
+                  className="w-5 h-5"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 4L12 12M12 4L4 12"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </motion.button>
+            </div>
+
+            {/* Main Navigation Links */}
+            <nav className="my-auto py-8 flex flex-col gap-3">
+              {[
+                { num: "01", label: "Platform", href: "#m-platform" },
+                { num: "02", label: "What We Check", href: "#m-features" },
+                { num: "03", label: "Testimonials", href: "#m-testimonial" },
+                { num: "04", label: "How It Works", href: "#m-how-it-works" },
+                { num: "05", label: "Pricing", href: "#m-pricing" },
+                { num: "06", label: "FAQ", href: "#m-faq" },
+              ].map((item, idx) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + idx * 0.04, duration: 0.3 }}
+                  className="group flex items-center justify-between p-3.5 rounded-xl hover:bg-[#121419] transition-all"
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="text-xs font-mono font-semibold text-[#E03A2F]/70">
+                      {item.num}
+                    </span>
+                    <span className="font-['Inter_Tight',system-ui,sans-serif] font-bold text-2xl sm:text-3xl text-[#F6F5F3] group-hover:text-white group-hover:translate-x-1 transition-all">
+                      {item.label}
+                    </span>
+                  </div>
+
+                  <svg
+                    viewBox="0 0 16 16"
+                    className="w-4 h-4 text-[#52525B] group-hover:text-[#E03A2F] group-hover:translate-x-1 transition-all"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 3L11 8L6 13"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </motion.a>
+              ))}
+            </nav>
+
+            {/* Bottom Actions & Trust */}
+            <div className="pt-6 border-t border-[#20242A] flex flex-col gap-4">
+              <motion.a
+                href="#m-pricing"
+                onClick={() => setMobileMenuOpen(false)}
+                whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 text-sm font-bold text-white [background-image:linear-gradient(180deg,_#F04A3B_0%,_#D62E23_100%)] rounded-xl shadow-[0_0_25px_rgba(240,74,59,0.35)] cursor-pointer"
+              >
+                <span>Review my contract — $199</span>
+                <svg
+                  viewBox="0 0 14 14"
+                  className="w-4 h-4"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 3L9 7L5 11"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.a>
+
+              <div className="flex items-center justify-between text-xs text-[#7C8087] px-1">
+                <span>Physician-attorney reviewed</span>
+                <span>•</span>
+                <span>HIPAA Compliant</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div
+        data-pencil-name="M Hero"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[20px] p-[16px_20px_0px_20px] justify-start items-center"
+      >
+        <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Eyebrow"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_12px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="M Eyebrow Label"
+            className="text-[9px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.1px] text-left [white-space:nowrap]"
+          >
+            PHYSICIAN CONTRACT REVIEW
+          </div>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Headline"
+          className="text-[38px]/[41px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.6px] text-center"
+        >
+          The $10,000 clause on page 14.
+        </motion.div>
+        <div
+          data-pencil-name="M Sub"
+          className="text-[14px]/[23px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-center"
+        >
+          RedlineMD reads every clause of your employment agreement and returns a redline with the
+          exposure priced — in 24 hours, for a flat $199.
+        </div>
+        <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} 
+          data-pencil-name="M CTA"
+          className="cursor-pointer box-border w-full h-fit shrink-0 flex flex-row gap-[10px] p-[15px_20px] justify-center items-center [background-image:linear-gradient(180deg,_#FF6448_0%,_#D42A20_100%)] bg-no-repeat bg-[length:100%_100%] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="M CTA Label"
+            className="text-[14.5px]/[normal] box-border text-[#FFFFFF] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Review my contract — $199
+          </div>
+          <svg
+            data-pencil-name="M CTA Icon"
+            data-icon-name="chevron-right"
+            data-icon-set="lucide"
+            viewBox="0 0 13.99993896484375 14"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            className="box-border w-[15px] shrink-0 h-[15px]"
+          >
+            <path
+              d="M5.09619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.24268-0.04785 0.09229-0.05127 1.90381-1.8628 1.81494-1.81494 1.86279-1.9038 0.05127-0.09229 0.05127-0.25977 0-0.16748-0.04443-0.24951-0.04102-0.08545-1.85938-1.90723l-1.44238-1.42871q-0.33496-0.33496-0.46143-0.41699-0.09912-0.07178-0.19824-0.07178l-0.04102 0q-0.14014 0-0.18115 0.01367z"
+              fill="#FFFFFF"
+            ></path>
+          </svg>
+        </motion.div>
+        <div
+          data-pencil-name="M CTA Note"
+          className="text-[11.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+        >
+          24-hour turnaround · no subscription
+        </div>
+        <div
+          data-pencil-name="M Proof"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-[7px] p-[0px_0px_4px_0px] justify-start items-center"
+        >
+          <div
+            data-pencil-name="M Proof Stars"
+            className="box-border w-fit shrink-0 h-fit flex flex-row gap-[3px] justify-start items-start"
+          >
+            <svg
+              data-pencil-name="M Star 0"
+              data-icon-name="star-fill"
+              data-icon-set="phosphor"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[11px] shrink-0 h-[11px]"
+            >
+              <path
+                d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <svg
+              data-pencil-name="M Star 1"
+              data-icon-name="star-fill"
+              data-icon-set="phosphor"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[11px] shrink-0 h-[11px]"
+            >
+              <path
+                d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <svg
+              data-pencil-name="M Star 2"
+              data-icon-name="star-fill"
+              data-icon-set="phosphor"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[11px] shrink-0 h-[11px]"
+            >
+              <path
+                d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <svg
+              data-pencil-name="M Star 3"
+              data-icon-name="star-fill"
+              data-icon-set="phosphor"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[11px] shrink-0 h-[11px]"
+            >
+              <path
+                d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <svg
+              data-pencil-name="M Star 4"
+              data-icon-name="star-fill"
+              data-icon-set="phosphor"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[11px] shrink-0 h-[11px]"
+            >
+              <path
+                d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+          </div>
+          <div
+            data-pencil-name="M Proof Text"
+            className="text-[11px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+          >
+            4.9/5 · 2,989+ contracts reviewed
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="M Product Shot"
+        className="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[26px_20px_0px_20px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="M App Card"
+          className="box-border [flex:1_1_0] h-fit flex flex-col gap-[11px] p-[13px] justify-start items-start bg-[#0B0C0F] [outline:1px_solid_#262A31] [outline-offset:-0.5px] rounded-[16px] overflow-hidden"
+        >
+          <div
+            data-pencil-name="M App Header"
+            className="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+          >
+            <div
+              data-pencil-name="M App Title Block"
+              className="box-border w-fit shrink-0 h-fit flex flex-col gap-[2px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M App Title"
+                className="text-[12.5px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Contract overview
+              </div>
+              <div
+                data-pencil-name="M App Sub"
+                className="text-[9.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                Employment_Agreement.pdf · 18h 42m
+              </div>
+            </div>
+            <div
+              data-pencil-name="M App State"
+              className="box-border w-fit shrink-0 h-fit flex flex-row gap-0 p-[4px_8px] justify-start items-start bg-[#4ADE8014] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M App State Label"
+                className="text-[8.5px]/[normal] box-border text-[#7BE8A0] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Reviewed
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Stat Row"
+            className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="M Stat Exposure found"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[4px] p-[10px_11px] justify-start items-start bg-[#111318] [outline:1px_solid_#1E2228] [outline-offset:-0.5px] rounded-[9px]"
+            >
+              <div
+                data-pencil-name="M Stat Label Exposure found"
+                className="text-[9px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                Exposure found
+              </div>
+              <div
+                data-pencil-name="M Stat Value Exposure found"
+                className="text-[19px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-0.7px] text-left [white-space:nowrap]"
+              >
+                $12,400
+              </div>
+              <div
+                data-pencil-name="M Stat Delta Exposure found"
+                className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[3px_6px] justify-start items-start bg-[#4ADE8014] rounded-[4px]"
+              >
+                <div
+                  data-pencil-name="M Stat Delta Label Exposure found"
+                  className="text-[8px]/[normal] box-border text-[#7BE8A0] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+                >
+                  worth negotiating
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Stat Risk flags"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[4px] p-[10px_11px] justify-start items-start bg-[#111318] [outline:1px_solid_#1E2228] [outline-offset:-0.5px] rounded-[9px]"
+            >
+              <div
+                data-pencil-name="M Stat Label Risk flags"
+                className="text-[9px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                Risk flags
+              </div>
+              <div
+                data-pencil-name="M Stat Value Risk flags"
+                className="text-[19px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-0.7px] text-left [white-space:nowrap]"
+              >
+                3
+              </div>
+              <div
+                data-pencil-name="M Stat Delta Risk flags"
+                className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[3px_6px] justify-start items-start bg-[#E03A2F1F] rounded-[4px]"
+              >
+                <div
+                  data-pencil-name="M Stat Delta Label Risk flags"
+                  className="text-[8px]/[normal] box-border text-[#FF8A7A] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+                >
+                  +2 vs. baseline
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Risk List"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[11px_12px] justify-start items-start bg-[#111318] [outline:1px_solid_#1E2228] [outline-offset:-0.5px] rounded-[10px]"
+          >
+            <div
+              data-pencil-name="M Risk Title"
+              className="text-[10.5px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              Where the money is
+            </div>
+            <div
+              data-pencil-name="M Risk Row Tail malpractice coverage"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[10px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Risk Label Block Tail malpractice coverage"
+                className="box-border w-fit shrink-0 h-fit flex flex-row gap-[7px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="M Risk Dot Tail malpractice coverage"
+                  className="box-border w-[5px] shrink-0 h-[5px] bg-[#E03A2F] rounded-[999px]"
+                ></div>
+                <div
+                  data-pencil-name="M Risk Name Tail malpractice coverage"
+                  className="text-[10px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                >
+                  Tail malpractice coverage
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Risk Amount Tail malpractice coverage"
+                className="text-[10px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                $12,400
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Risk Row Non-compete radius"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[10px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Risk Label Block Non-compete radius"
+                className="box-border w-fit shrink-0 h-fit flex flex-row gap-[7px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="M Risk Dot Non-compete radius"
+                  className="box-border w-[5px] shrink-0 h-[5px] bg-[#F08A3C] rounded-[999px]"
+                ></div>
+                <div
+                  data-pencil-name="M Risk Name Non-compete radius"
+                  className="text-[10px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                >
+                  Non-compete radius
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Risk Amount Non-compete radius"
+                className="text-[10px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                $4,800
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Risk Row Call stipend floor"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[10px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Risk Label Block Call stipend floor"
+                className="box-border w-fit shrink-0 h-fit flex flex-row gap-[7px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="M Risk Dot Call stipend floor"
+                  className="box-border w-[5px] shrink-0 h-[5px] bg-[#E3C05A] rounded-[999px]"
+                ></div>
+                <div
+                  data-pencil-name="M Risk Name Call stipend floor"
+                  className="text-[10px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                >
+                  Call stipend floor
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Risk Amount Call stipend floor"
+                className="text-[10px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                $2,100
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Redline Card"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[6px] p-[10px_11px] justify-start items-start bg-[#111318] [outline:1px_solid_#1E2228] [outline-offset:-0.5px] rounded-[10px]"
+          >
+            <div
+              data-pencil-name="M Redline Label"
+              className="text-[7.5px]/[normal] box-border text-[#FF8A7A] font-[Inter,system-ui,sans-serif] font-bold tracking-[0.9px] text-left [white-space:nowrap]"
+            >
+              SUGGESTED REDLINE · SECTION 8.2
+            </div>
+            <div
+              data-pencil-name="M Redline Text"
+              className="text-[9.5px]/[15px] box-border w-full text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              “Company shall maintain tail malpractice coverage at its sole expense for five (5)
+              years following termination.”
+            </div>
+          </div>
+          <div
+            data-pencil-name="M App Footer"
+            className="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+          >
+            <div
+              data-pencil-name="M App Footer Note"
+              className="text-[9px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              1 redline ready
+            </div>
+            <motion.div whileTap={{ scale: 0.96 }} transition={{ duration: 0.15 }} 
+              data-pencil-name="M App Footer Btn"
+              className="cursor-pointer box-border w-fit shrink-0 h-fit flex flex-row gap-0 p-[6px_10px] justify-start items-start bg-[#E03A2F] rounded-[6px]"
+            >
+              <div
+                data-pencil-name="M App Footer Btn Label"
+                className="text-[9px]/[normal] box-border text-[#FFFFFF] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Send back
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="m-platform" data-pencil-name="M Platform"
+        className="[box-sizing:content-box] w-[390px] h-[943.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill THE PLATFORM"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label THE PLATFORM"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            THE PLATFORM
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Platform Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          Everything you need to negotiate like you’ve done this before.
+        </motion.div>
+        <div
+          data-pencil-name="M Platform Sub"
+          className="text-[13.5px]/[22px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+        >
+          Most physicians negotiate once every three to five years. RedlineMD gives you the
+          clause-level read of someone who does it weekly.
+        </div>
+        <div
+          data-pencil-name="M Platform Cards"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[6px_0px_0px_0px] justify-start items-start"
+        >
+          <motion.div whileTap={{ scale: 0.98 }} whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 15 }} viewport={{ once: true }} transition={{ duration: 0.4 }} 
+            data-pencil-name="M Card Clause-level redlining"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[16px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[12px]"
+          >
+            <div
+              data-pencil-name="M Card Icon Box Clause-level redlining"
+              className="box-border w-[32px] h-[32px] shrink-0 flex flex-row gap-0 justify-center items-center bg-[#FFFFFF0A] [outline:1px_solid_#FFFFFF0F] [outline-offset:-0.5px] rounded-[8px]"
+            >
+              <svg
+                data-pencil-name="M Card Icon Clause-level redlining"
+                data-icon-name="file-diff"
+                data-icon-set="lucide"
+                viewBox="0 0 13.99993896484375 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[15px] shrink-0 h-[15px]"
+              >
+                <path
+                  d="M3.33252 0.60156q-0.58789 0.04102-1.02197 0.44776-0.43408 0.40674-0.53321 0.99463-0.02734 0.16748-0.02734 4.95605 0 4.78857 0.02734 4.95605 0.09912 0.5332 0.46827 0.92627 0.37256 0.38965 0.90576 0.50245 0.10938 0.01367 0.66992 0.02734l3.17871 0 3.17871 0q0.56055-0.01367 0.66992-0.02734 0.5332-0.11279 0.90235-0.50245 0.37256-0.39307 0.47168-0.92627 0.02734-0.16748 0.02734-3.80078 0-3.6333-0.02734-3.80078-0.08545-0.51953-0.40674-0.92285-0.11279-0.14014-1.24756-1.2749-0.89551-0.88184-1.10742-1.06983-0.2085-0.19141-0.41699-0.29052-0.33496-0.16748-0.72803-0.19483-0.18115-0.02734-2.4917-0.02734-2.31055 0-2.4917 0.02734z m4.99707 1.16211q0.09912 0.02734 0.21191 0.07178 0.08203 0.04102 0.27686 0.229 0.19824 0.18799 0.98096 0.97412 0.82715 0.82715 0.98779 1.00147 0.16065 0.17432 0.21533 0.27344l0.07178 0.14013 0 7.32129-0.02735 0.0957q-0.04443 0.09912-0.12988 0.19141-0.08203 0.08887-0.16406 0.1333l-0.09912 0.04102-7.30762 0-0.09912-0.04102q-0.08203-0.04443-0.16748-0.1333-0.08203-0.09228-0.11963-0.17431-0.03418-0.08545-0.03418-0.70069l0-4.18701 0-4.18701q0-0.61523 0.02734-0.6836 0.05811-0.12646 0.16749-0.23242 0.11279-0.10596 0.23925-0.1333 0.08545-0.01367 2.48487-0.01367 2.40283 0 2.48486 0.01367z m-1.46973 1.75q-0.12646 0.02734-0.23925 0.1333-0.10938 0.10596-0.16749 0.23242-0.01367 0.06836-0.0205 0.17432-0.00684 0.10596-0.00684 0.55371l0 0.64258-1.32959 0.01367-0.09912 0.04102q-0.2666 0.12646-0.31445 0.42041-0.04785 0.29395 0.14697 0.50586 0.08545 0.08203 0.18115 0.14013l0.1128 0.04102 1.30224 0.01367 0 0.62891q0 0.40674 0 0.5332 0.01367 0.16748 0.04102 0.23926 0.03076 0.06836 0.11279 0.15381 0.18115 0.18115 0.42041 0.18115 0.23926 0 0.42041-0.18115 0.08203-0.08545 0.10938-0.15381 0.03076-0.07178 0.04443-0.23926 0-0.12646 0-0.5332l0-0.62891 1.30224-0.01367 0.1128-0.04102q0.2085-0.11279 0.29053-0.32129 0.08545-0.21191 0.00683-0.42041-0.0752-0.21191-0.28369-0.3247l-0.09912-0.04102-1.32959-0.01367 0-0.64258q0-0.44775-0.00684-0.55371-0.00684-0.10596-0.02051-0.17432-0.08545-0.19824-0.28369-0.30078-0.19482-0.10596-0.40332-0.06494z m-1.70898 5.83789q-0.18115 0.02734-0.32129 0.16748-0.2085 0.21191-0.15381 0.50586 0.05469 0.29395 0.32129 0.42041l0.09912 0.04102 3.80762 0 0.09912-0.04102q0.2666-0.12646 0.32129-0.42041 0.05469-0.29395-0.15381-0.50586-0.14014-0.14014-0.33496-0.16748-0.09912-0.02734-1.84229-0.02734-1.74316 0-1.84228 0.02734z"
+                  fill="#F6F5F3"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-pencil-name="M Card Title Clause-level redlining"
+              className="text-[14.5px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold tracking-[-0.3px] text-left"
+            >
+              Clause-level redlining
+            </div>
+            <div
+              data-pencil-name="M Card Desc Clause-level redlining"
+              className="text-[12.5px]/[20px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              Tracked changes on the exact document you were emailed, annotated in plain English.
+            </div>
+          </motion.div>
+          <motion.div whileTap={{ scale: 0.98 }} whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 15 }} viewport={{ once: true }} transition={{ duration: 0.4 }} 
+            data-pencil-name="M Card Dollar-cost risk scoring"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[16px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[12px]"
+          >
+            <div
+              data-pencil-name="M Card Icon Box Dollar-cost risk scoring"
+              className="box-border w-[32px] h-[32px] shrink-0 flex flex-row gap-0 justify-center items-center bg-[#FFFFFF0A] [outline:1px_solid_#FFFFFF0F] [outline-offset:-0.5px] rounded-[8px]"
+            >
+              <svg
+                data-pencil-name="M Card Icon Dollar-cost risk scoring"
+                data-icon-name="table-2"
+                data-icon-set="lucide"
+                viewBox="0 0 13.99993896484375 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[15px] shrink-0 h-[15px]"
+              >
+                <path
+                  d="M2.60449 1.20313q-0.50586 0.08545-0.87842 0.43749-0.36914 0.34863-0.50927 0.86475-0.02734 0.08545-0.02735 0.71436l-0.01367 3.78027 0.01367 3.78027q0 0.62891 0.02735 0.71436 0.14014 0.48877 0.46826 0.82031 0.33154 0.32813 0.82031 0.46826 0.08545 0.02734 0.71436 0.02735l3.78027 0.01367 3.78027-0.01367q0.62891 0 0.71436-0.02735 0.48877-0.14014 0.81689-0.46826 0.33154-0.33154 0.47168-0.82031 0.02734-0.08545 0.02735-0.71436l0.01367-3.78027-0.01367-3.78027q0-0.62891-0.02735-0.71436-0.12646-0.48877-0.458-0.81689-0.32813-0.33154-0.80323-0.47168l-0.14013-0.04102-4.32715 0q-4.3374 0-4.4502 0.02734z m2.07129 2.29687l0 1.17578-2.35156 0 0.01367-1.89014 0.04102-0.09912q0.07178-0.14014 0.18798-0.229 0.11963-0.09229 0.25977-0.11963 0.08545 0 0.96729-0.01367l0.88183 0 0 1.17578z m6.6377-1.12109q0.2085 0.09912 0.30761 0.30761l0.04102 0.09912 0.01367 1.89014-5.85156 0 0-2.35156 5.39013 0.01367 0.09913 0.04102z m-6.6377 6.37109l0 2.92578-0.88183 0q-0.88184 0-0.98096-0.02734-0.29395-0.05811-0.43408-0.33496l-0.04102-0.09912-0.01367-5.39014 2.35156 0 0 2.92578z m6.98633-0.23926l0 2.70362-0.04102 0.09912q-0.14014 0.27685-0.43408 0.33496-0.09912 0.02734-2.73096 0.02734l-2.63183 0 0-5.85156 5.85156 0-0.01367 2.68652z"
+                  fill="#F6F5F3"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-pencil-name="M Card Title Dollar-cost risk scoring"
+              className="text-[14.5px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold tracking-[-0.3px] text-left"
+            >
+              Dollar-cost risk scoring
+            </div>
+            <div
+              data-pencil-name="M Card Desc Dollar-cost risk scoring"
+              className="text-[12.5px]/[20px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              Every flag priced: tail coverage, RVU thresholds, call stipends, bonus triggers.
+            </div>
+          </motion.div>
+          <motion.div whileTap={{ scale: 0.98 }} whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 15 }} viewport={{ once: true }} transition={{ duration: 0.4 }} 
+            data-pencil-name="M Card Negotiation scripts"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[16px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[12px]"
+          >
+            <div
+              data-pencil-name="M Card Icon Box Negotiation scripts"
+              className="box-border w-[32px] h-[32px] shrink-0 flex flex-row gap-0 justify-center items-center bg-[#FFFFFF0A] [outline:1px_solid_#FFFFFF0F] [outline-offset:-0.5px] rounded-[8px]"
+            >
+              <svg
+                data-pencil-name="M Card Icon Negotiation scripts"
+                data-icon-name="mail"
+                data-icon-set="lucide"
+                viewBox="0 0 13.99993896484375 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[15px] shrink-0 h-[15px]"
+              >
+                <path
+                  d="M2.05762 1.77734q-0.28027 0.04102-0.53321 0.16748-0.34863 0.19824-0.58789 0.50586-0.23584 0.30762-0.32129 0.70069-0.01367 0.10938-0.02734 0.66992l0 3.17871 0 3.17871q0.01367 0.56055 0.02734 0.66992 0.11279 0.5332 0.50245 0.90577 0.39307 0.36914 0.92627 0.46826 0.16748 0.02734 4.95605 0.02734 4.78857 0 4.95605-0.02734 0.5332-0.09912 0.92286-0.46826 0.39307-0.37256 0.50586-0.90577 0.01367-0.10938 0.02734-0.66992l0-3.17871 0-3.17871q-0.01367-0.56055-0.02734-0.66992-0.12647-0.54688-0.53321-0.92285-0.40674-0.37939-0.95019-0.46485-0.1709-0.01367-4.93897-0.01367-4.76465 0-4.90478 0.02734z m9.81298 1.17579q0.09912 0.04443 0.18116 0.12304 0.08545 0.0752 0.12646 0.16065 0.04443 0.08203 0.05127 0.12988 0.00684 0.04785 0.00684 0.18799l0 0.21191-2.46436 1.58252q-2.46436 1.56543-2.53613 1.60303-0.06836 0.03418-0.16748 0.03418l-0.02734 0.01367q-0.0957 0.01367-0.2085-0.04102-0.15381-0.07178-0.65967-0.37939l-4.40918-2.81299 0-0.21191q0-0.14014 0.00684-0.18799 0.00684-0.04785 0.04101-0.12305 0.0376-0.07861 0.12647-0.16064 0.09229-0.08545 0.16748-0.1128 0.07861-0.03076 0.70752-0.04443l4.18701 0 4.18701 0q0.61523 0 0.68359 0.02735z m-5.63964 5.02783q0.22217 0.10938 0.46142 0.15381 0.09912 0.02734 0.30762 0.02734 0.2085 0 0.30762-0.02734 0.30762-0.05811 0.54687-0.19825 0.14014-0.08203 2.26612-1.42529l2.12939-1.36035-0.01367 5.50293-0.04102 0.09912q-0.11279 0.2085-0.3247 0.29395l-0.09571 0.02734-9.5498 0-0.09571-0.02734q-0.21191-0.08545-0.3247-0.29395l-0.04102-0.09912-0.01367-5.50293 2.17041 1.37402q2.17041 1.38428 2.31055 1.45606z"
+                  fill="#F6F5F3"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-pencil-name="M Card Title Negotiation scripts"
+              className="text-[14.5px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold tracking-[-0.3px] text-left"
+            >
+              Negotiation scripts
+            </div>
+            <div
+              data-pencil-name="M Card Desc Negotiation scripts"
+              className="text-[12.5px]/[20px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              A ready-to-send email citing the exact clause numbers you are pushing back on.
+            </div>
+          </motion.div>
+          <motion.div whileTap={{ scale: 0.98 }} whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 15 }} viewport={{ once: true }} transition={{ duration: 0.4 }} 
+            data-pencil-name="M Card Physician-attorney review"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[16px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[12px]"
+          >
+            <div
+              data-pencil-name="M Card Icon Box Physician-attorney review"
+              className="box-border w-[32px] h-[32px] shrink-0 flex flex-row gap-0 justify-center items-center bg-[#FFFFFF0A] [outline:1px_solid_#FFFFFF0F] [outline-offset:-0.5px] rounded-[8px]"
+            >
+              <svg
+                data-pencil-name="M Card Icon Physician-attorney review"
+                data-icon-name="stethoscope"
+                data-icon-set="lucide"
+                viewBox="0 0 13.99993896484375 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[15px] shrink-0 h-[15px]"
+              >
+                <path
+                  d="M2.82666 0.60156q-0.15381 0.01367-0.28711 0.12647-0.12988 0.11279-0.17432 0.25293l-0.04101 0.19482-0.08545 0q-0.16748 0-0.3999 0.07178-0.229 0.06836-0.41016 0.16748-0.28027 0.16748-0.48535 0.44775-0.20166 0.28027-0.30078 0.58789-0.04102 0.18115-0.05469 0.46827-0.01367 0.28711-0.00684 1.36035 0.00684 1.06982 0.02051 1.30908 0.01367 0.23584 0.08545 0.54346 0.2085 0.98096 0.87158 1.75683 0.6665 0.77588 1.60645 1.15528 0.32129 0.12646 0.71435 0.20849 0.16748 0.04443 0.2085 0.05127 0.04102 0.00684 0.04102 0.04785 0.01367 0.19482 0.10595 0.49219 0.09229 0.29395 0.18799 0.52979 0.28027 0.65967 0.78272 1.19287 0.50586 0.52978 1.15185 0.8374 0.40332 0.2085 0.79639 0.29394 0.29395 0.08545 0.46826 0.10596 0.17432 0.02051 0.54004 0.02051 0.30762 0 0.42041-0.00684 0.11279-0.00684 0.2666-0.03418 0.85449-0.15381 1.55176-0.6084 0.70068-0.45801 1.17578-1.17236 0.2666-0.40332 0.43408-0.89209 0.1709-0.49219 0.22559-0.96728 0.01367-0.18457 0.01367-0.92627l0-0.7417 0.08545-0.02735q0.18115-0.05469 0.38281-0.21533 0.20508-0.16406 0.34522-0.34521 0.24951-0.33496 0.31787-0.73487 0.07178-0.3999-0.04102-0.80322-0.15381-0.51953-0.56738-0.86133-0.41016-0.34521-0.92969-0.38623-0.51611-0.04102-0.95019 0.16748-0.32471 0.16748-0.56397 0.44776-0.23584 0.28027-0.34863 0.64599-0.02734 0.11279-0.04102 0.18457-0.01367 0.06836-0.01367 0.27686 0 0.25293 0.02051 0.37256 0.02051 0.11621 0.10596 0.31445 0.12646 0.29395 0.37597 0.55371 0.25293 0.25635 0.53321 0.36914l0.11279 0.04102 0 0.82715q-0.01367 0.65625-0.02735 0.83398-0.01367 0.17432-0.08544 0.42725-0.18115 0.65625-0.65967 1.16894-0.4751 0.50928-1.11768 0.74854-0.48877 0.18115-1.02881 0.18115-0.54004 0-1.02881-0.19482-0.29395-0.09912-0.52636-0.25294-0.229-0.15381-0.46826-0.37939-0.4751-0.4751-0.70069-1.09033-0.04102-0.09912-0.08545-0.25977-0.04102-0.16064-0.04101-0.18115 0-0.02051 0.12646-0.05127 0.33838-0.05469 0.72803-0.20849 1.06641-0.40674 1.76367-1.34327 0.70068-0.93994 0.81348-2.08496 0.01367-0.22559 0.01367-1.59619l-0.01367-1.38769-0.04102-0.15381q-0.14014-0.48877-0.47851-0.81348-0.46143-0.44775-1.06299-0.48877l-0.15381-0.01367 0-0.05469q0-0.04443-0.04443-0.14697-0.04102-0.10596-0.08203-0.14697-0.11279-0.14014-0.26661-0.19825-0.06836-0.02734-0.19482-0.02734-0.2085 0-0.37256 0.1333-0.16064 0.1333-0.18799 0.3418-0.02734 0.09912-0.02734 0.68701 0 0.58789 0.01367 0.68701 0.05469 0.23584 0.24951 0.36914 0.19824 0.1333 0.42383 0.09229 0.10938-0.01367 0.18115-0.04102 0.11279-0.05811 0.20166-0.1914 0.09229-0.1333 0.10596-0.25635l0-0.07178 0.09912 0.01367q0.14014 0.01367 0.24951 0.09912 0.11279 0.08203 0.18457 0.22217l0.04102 0.08545 0 1.4834q0 1.09375-0.01367 1.31934-0.01367 0.22217-0.09912 0.48535l0 0.01709q-0.18115 0.65625-0.65967 1.16894-0.4751 0.50928-1.11768 0.74854-0.4751 0.18115-1.02197 0.18115-0.54688 0-1.03565-0.19482-0.29395-0.09912-0.52636-0.25293-0.229-0.15381-0.46826-0.3794-0.70068-0.68359-0.8545-1.66455-0.01367-0.14014-0.01367-1.52783l0-1.37061 0.04102-0.09912q0.05811-0.12646 0.16748-0.21533 0.11279-0.09229 0.25293-0.10596l0.09912-0.01367 0.01367 0.05469q0.02734 0.21191 0.15381 0.34521 0.12646 0.1333 0.32129 0.16065 0.08545 0.02734 0.18799 0.00683 0.10596-0.02051 0.18115-0.05468 0.07861-0.0376 0.14697-0.1128 0.07178-0.07861 0.11621-0.16064l0.04102-0.09912 0.01367-1.41504-0.04102-0.0957q-0.08545-0.19824-0.25293-0.30079-0.16748-0.10596-0.37939-0.06494z m9.08838 4.70313q0.18115 0.09912 0.28027 0.29394 0.05469 0.09912 0.05469 0.23242 0 0.1333-0.05127 0.23243-0.04785 0.0957-0.11963 0.17431-0.06836 0.0752-0.15039 0.11963-0.09912 0.05469-0.25976 0.05469-0.16064 0-0.25977-0.05469-0.2666-0.14014-0.31445-0.43408-0.04785-0.29395 0.17431-0.50586 0.12646-0.12646 0.30078-0.15381 0.17774-0.02734 0.34522 0.04102z"
+                  fill="#F6F5F3"
+                ></path>
+              </svg>
+            </div>
+            <div
+              data-pencil-name="M Card Title Physician-attorney review"
+              className="text-[14.5px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold tracking-[-0.3px] text-left"
+            >
+              Physician-attorney review
+            </div>
+            <div
+              data-pencil-name="M Card Desc Physician-attorney review"
+              className="text-[12.5px]/[20px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              A licensed physician reviews every AI output before it reaches your inbox.
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div
+        id="m-features" data-pencil-name="M Features"
+        className="[box-sizing:content-box] w-[390px] h-[764.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill WHAT WE CHECK"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label WHAT WE CHECK"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            WHAT WE CHECK
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Features Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          Every clause that costs physicians money.
+        </motion.div>
+        <div
+          data-pencil-name="M Features Sub"
+          className="text-[13.5px]/[22px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+        >
+          A standard $199 review covers all of it. Nothing is optional, nothing is behind an
+          upgrade.
+        </div>
+        <div
+          data-pencil-name="M Feature List"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[8px_0px_0px_0px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Feature Tail insurance exposure"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[12px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <svg
+              data-pencil-name="M Feature Icon Tail insurance exposure"
+              data-icon-name="shield-alert"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[17px] shrink-0 h-[17px]"
+            >
+              <path
+                d="M6.84619 0.60156q-0.34863 0.02734-0.68701 0.30762-0.51611 0.42041-1.00147 0.70068-0.48193 0.28027-1.01513 0.4751-0.30762 0.11279-0.58789 0.1709-0.28027 0.05469-0.66992 0.08203-0.23926 0.01367-0.36573 0.07178-0.19482 0.06836-0.37939 0.22217-0.18115 0.15381-0.26319 0.34863l-0.01367 0.03076q-0.07178 0.12646-0.08545 0.22217-0.01367 0.15381-0.02734 0.60156l0 1.78076q0 2.25244 0.01367 2.46094 0.14014 1.6543 1.10742 2.88477 0.14014 0.16748 0.43409 0.46142 0.29395 0.29394 0.48877 0.44775 0.92285 0.7417 2.2832 1.27491 0.46143 0.18115 0.65625 0.23926 0.23926 0.05469 0.43408 0.01367 0.16748-0.02734 0.5332-0.15381 1.35693-0.51953 2.27979-1.20313 0.37939-0.2666 0.71435-0.60498 1.37402-1.3706 1.54151-3.37353 0.01367-0.23584 0.01367-2.46094 0-2.22852-0.02734-2.35498-0.07178-0.32129-0.31787-0.56396-0.24268-0.24609-0.5503-0.31788-0.09912-0.02734-0.37939-0.04101-0.48877-0.02734-0.96387-0.18115-0.81348-0.2666-1.55518-0.77246-0.2666-0.18115-0.64257-0.48877-0.42041-0.33496-0.96729-0.28028z m0.43408 1.34326q0.64258 0.51953 1.32959 0.86817 1.2168 0.61865 2.25244 0.68701l0.21192 0-0.01367 4.31348q0 0.33496-0.02735 0.50244-0.22559 1.34326-1.1416 2.27637-0.91602 0.92969-2.66601 1.57226l-0.21192 0.08545-0.18115-0.05469q-2.32422-0.85449-3.2334-2.22851-0.47852-0.71436-0.63232-1.63721-0.02734-0.18115-0.02735-0.50244l-0.01367-4.32715 0.19483 0q0.86816-0.05469 1.84912-0.48193 0.98096-0.42725 1.83545-1.12793 0.16748-0.14014 0.19482-0.14014 0.02734 0 0.28027 0.19482z m-0.37939 2.15674q-0.0957 0.01367-0.17432 0.05127-0.0752 0.03418-0.15381 0.12647-0.0752 0.08887-0.11279 0.16748-0.03418 0.0752-0.03418 0.25634l0 2.46436 0.04102 0.08545q0.04443 0.06836 0.12646 0.15381 0.08545 0.08203 0.16065 0.12646 0.07861 0.04102 0.24609 0.04102 0.16748 0 0.24268-0.04102 0.07861-0.04443 0.16064-0.12646 0.08545-0.08545 0.12988-0.15381l0.04102-0.08545 0-2.33789q0-0.2666-0.02051-0.3418-0.02051-0.07861-0.07861-0.16064l-0.01367-0.01367q-0.09912-0.12646-0.2461-0.18116-0.14697-0.05811-0.31445-0.03076z m-0.05469 4.67578q-0.2085 0.05811-0.32129 0.22559-0.11279 0.16748-0.09912 0.37256 0.01367 0.20166 0.15381 0.35547 0.08545 0.08203 0.15381 0.12646 0.21191 0.0957 0.42041 0.03418 0.2085-0.06494 0.33496-0.24609 0.12646-0.18115 0.08545-0.40674-0.01367-0.10938-0.05127-0.17773-0.03418-0.07178-0.11963-0.14014-0.08203-0.07178-0.16064-0.11279-0.0752-0.04443-0.19483-0.05127-0.11621-0.00684-0.20166 0.0205z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Feature Text Tail insurance exposure"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Feature Title Tail insurance exposure"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Tail insurance exposure
+              </div>
+              <div
+                data-pencil-name="M Feature Desc Tail insurance exposure"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Five-year tail provisions that cost $8,000–$15,000 are flagged with the dollar
+                figure attached.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Feature Non-compete scope"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[12px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <svg
+              data-pencil-name="M Feature Icon Non-compete scope"
+              data-icon-name="map-pin"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[17px] shrink-0 h-[17px]"
+            >
+              <path
+                d="M6.71973 0.60156q-0.81006 0.02734-1.56885 0.31446-0.75537 0.28711-1.41162 0.80664-0.19824 0.15381-0.48535 0.44775-0.28711 0.29395-0.44092 0.48877-0.42041 0.57422-0.67334 1.17578-0.24951 0.60156-0.34863 1.31592-0.04102 0.23926-0.03418 0.68017 0.00684 0.44092 0.03418 0.69385 0.14014 0.88184 0.56054 1.79102 0.50586 1.07666 1.44922 2.27637 0.94678 1.19629 2.19092 2.31738 0.22559 0.19482 0.32129 0.27343 0.09912 0.0752 0.19824 0.11622 0.22217 0.11279 0.48877 0.11279 0.2666 0 0.48877-0.11279 0.11279-0.04101 0.19482-0.10254 0.08545-0.06494 0.31104-0.25977 0.96387-0.86816 1.79101-1.83203 0.82715-0.96728 1.37403-1.86621 0.75537-1.27148 0.98437-2.42676 0.23242-1.15527-0.06152-2.29004-0.35205-1.35693-1.35693-2.36523-0.36572-0.37939-0.74512-0.64258-0.37598-0.2666-0.8374-0.46484-1.12109-0.51611-2.42334-0.44776z m0.88183 1.18946q0.67334 0.09912 1.28174 0.42041 0.6084 0.32129 1.0835 0.82714 0.68701 0.71436 0.95361 1.66114 0.2666 0.94336 0.08203 1.90722-0.34863 1.72266-2.26611 3.92041-0.32129 0.36572-1.00147 1.03907-0.68018 0.66992-0.73486 0.66992-0.05469 0-0.73486-0.66992-0.68018-0.67334-1.00147-1.03907-1.79102-2.05762-2.21142-3.70849-0.08545-0.32129-0.1128-0.69385-0.02734-0.37256 0-0.69385 0.07178-0.66992 0.34864-1.29199 0.28027-0.62549 0.75879-1.11426 0.51611-0.54688 1.20312-0.875 0.68701-0.33154 1.44238-0.38623 0.12646-0.01367 0.44776 0 0.32129 0.01367 0.46142 0.02735z m-0.85449 1.72265q-0.7417 0.08545-1.28857 0.57422-0.5708 0.50244-0.7417 1.26123-0.04102 0.15381-0.04102 0.42041 0 0.26318 0.02734 0.43408 0.11279 0.72803 0.63233 1.25782 0.44775 0.46143 1.06299 0.62548 0.61523 0.16064 1.22363-0.00683 0.6084-0.1709 1.05957-0.63233 0.50244-0.5332 0.62891-1.24414 0.01367-0.1709 0.01367-0.43408 0-0.2666-0.04102-0.40674-0.1709-0.77246-0.7417-1.2749-0.46484-0.40674-1.0664-0.5332-0.15381-0.02734-0.3794-0.04102-0.22217-0.01367-0.34863 0z m0.51953 1.18946q0.29395 0.05811 0.54688 0.30761 0.18115 0.18457 0.26318 0.37256 0.08545 0.18799 0.08545 0.44092 0 0.5332-0.39307 0.88183-0.32129 0.29395-0.76904 0.29395-0.44775 0-0.76904-0.29395-0.44775-0.40674-0.3794-1.0083 0.01367-0.2085 0.09571-0.36914 0.08545-0.16406 0.25293-0.33154 0.1709-0.16748 0.35205-0.24268 0.18115-0.07861 0.43408-0.07861 0.16748 0 0.28027 0.02735z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Feature Text Non-compete scope"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Feature Title Non-compete scope"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Non-compete scope
+              </div>
+              <div
+                data-pencil-name="M Feature Desc Non-compete scope"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Radius and duration benchmarked against what is enforceable in your state.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Feature Compensation &amp; RVU"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[12px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <svg
+              data-pencil-name="M Feature Icon Compensation &amp; RVU"
+              data-icon-name="calculator"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[17px] shrink-0 h-[17px]"
+            >
+              <path
+                d="M3.33252 0.60156q-0.58789 0.04102-1.02197 0.44776-0.43408 0.40674-0.53321 0.99463-0.02734 0.16748-0.02734 4.95605 0 4.78857 0.02734 4.95605 0.09912 0.5332 0.46827 0.92627 0.37256 0.38965 0.90576 0.50245 0.10938 0.01367 0.66992 0.02734l3.17871 0 3.17871 0q0.56055-0.01367 0.66992-0.02734 0.5332-0.11279 0.90235-0.50245 0.37256-0.39307 0.47168-0.92627 0.02734-0.16748 0.02734-4.95605 0-4.78857-0.02734-4.95605-0.05811-0.3623-0.25293-0.66309-0.19482-0.3042-0.50245-0.49902-0.36572-0.25293-0.82714-0.28028-0.18115-0.02734-3.65381-0.02734-3.47266 0-3.65381 0.02734z m7.42041 1.20313q0.2085 0.11279 0.29394 0.3247 0.02734 0.06836 0.02735 0.6836l0 4.18701 0 4.18701q0 0.61523-0.0376 0.70069-0.03418 0.08203-0.11963 0.17431-0.08203 0.08887-0.16406 0.1333l-0.09912 0.04102-7.30762 0-0.09912-0.04102q-0.08203-0.04443-0.16748-0.1333-0.08203-0.09228-0.11963-0.17432-0.03418-0.08545-0.03418-0.70068l0-4.18701 0-4.18701q0-0.61523 0.02734-0.6836 0.05811-0.12646 0.16749-0.23242 0.11279-0.10596 0.23925-0.1333 0.08545-0.01367 3.68116-0.01367l3.61279 0.01367 0.09912 0.04102z m-6.27197 1.14843q-0.23926 0.08545-0.34522 0.32471-0.10254 0.23584-0.00683 0.46143 0.05811 0.0957 0.14013 0.18115 0.08545 0.08203 0.16748 0.11963 0.08545 0.03418 0.40674 0.03418l2.15674 0 2.15674 0q0.32129 0 0.40332-0.03418 0.08545-0.0376 0.16748-0.11963 0.08545-0.08545 0.1333-0.18799 0.05127-0.10596 0.05127-0.23242 0-0.12646-0.04102-0.23926-0.09912-0.19482-0.29394-0.29394l-0.08545-0.04102-2.47803 0q-2.47803 0-2.53271 0.02734z m0.04101 2.31055q-0.14014 0.04102-0.2666 0.16748-0.16748 0.15381-0.17432 0.37256-0.00684 0.21533 0.12647 0.39307 0.1333 0.17432 0.36914 0.21533 0.29395 0.04102 0.51953-0.18115 0.19482-0.21191 0.14697-0.49903-0.04785-0.28711-0.31445-0.41357-0.07178-0.04102-0.19824-0.05469-0.12305-0.01367-0.2085 0z m2.33789 0q-0.12646 0.02734-0.23925 0.1333-0.10938 0.10596-0.16749 0.23242-0.0957 0.24951 0.04444 0.48877 0.14014 0.23926 0.41699 0.28711 0.28027 0.04785 0.49561-0.16064 0.21875-0.21191 0.16406-0.51953-0.02734-0.16748-0.15381-0.29395-0.11279-0.11279-0.25977-0.15381-0.14697-0.04102-0.30078-0.01367z m2.33789 0q-0.08545 0.02734-0.18457 0.09229-0.0957 0.06152-0.15039 0.1333-0.12646 0.16748-0.11279 0.38623 0.01367 0.21533 0.18115 0.36914 0.12646 0.12646 0.30762 0.15381 0.29395 0.05469 0.50928-0.16065 0.21875-0.21875 0.16406-0.51269-0.05469-0.29395-0.34863-0.42041-0.07178-0.04102-0.18457-0.04785-0.10938-0.00684-0.18116 0.00683z m-4.62109 2.33789q-0.23584 0.02734-0.38281 0.23242-0.14697 0.20166-0.09229 0.44092 0.02734 0.18115 0.15381 0.29395 0.16748 0.16748 0.42041 0.16748 0.14014 0 0.23926-0.04102 0.2085-0.09912 0.28369-0.29394 0.07861-0.19824 0.03076-0.39991-0.04785-0.20508-0.23242-0.32128-0.18115-0.11963-0.42041-0.07862z m2.32422 0q-0.18115 0.02734-0.32129 0.16748-0.2085 0.21191-0.15381 0.50586 0.05469 0.29395 0.32129 0.42041 0.09912 0.04102 0.25293 0.04102 0.25293 0 0.42041-0.16748 0.12646-0.12646 0.15381-0.30762 0.05469-0.29395-0.15723-0.50244-0.2085-0.21191-0.51611-0.15723z m2.32422 0q-0.12646 0.01367-0.2461 0.10596-0.11621 0.08887-0.17431 0.21533l-0.04102 0.09912 0 2.63184 0.04102 0.09912q0.12646 0.2666 0.42041 0.31445 0.29395 0.04785 0.50586-0.14697 0.08203-0.08545 0.14013-0.18115l0.04102-0.1128 0.01367-1.23388q0-1.2168-0.01367-1.31592-0.05469-0.24951-0.24609-0.38281-0.18799-0.1333-0.44092-0.09229z m-4.74414 2.35156q-0.18457 0.0581-0.29053 0.21192-0.10254 0.15381-0.10254 0.33496 0 0.23926 0.17432 0.41357 0.17432 0.17432 0.42041 0.16065 0.24609-0.01367 0.3999-0.16748 0.09912-0.09912 0.12646-0.18115 0.02734-0.08545 0.02735-0.23926 0-0.15381-0.04102-0.23926-0.08545-0.18115-0.2666-0.2666-0.08545-0.04102-0.23242-0.05469-0.14697-0.01367-0.21533 0.02734z m2.36523-0.01367q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.23926 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.15381 0.15381 0.3999 0.16748 0.24609 0.01367 0.42041-0.16065 0.17432-0.17432 0.17432-0.41357 0-0.23926-0.16748-0.3999-0.16748-0.16064-0.39307-0.17432-0.14014 0-0.18115 0.01367z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Feature Text Compensation &amp; RVU"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Feature Title Compensation &amp; RVU"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Compensation &amp; RVU
+              </div>
+              <div
+                data-pencil-name="M Feature Desc Compensation &amp; RVU"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Base, wRVU conversion, and bonus thresholds compared for your specialty.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Feature Call &amp; coverage duties"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[12px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <svg
+              data-pencil-name="M Feature Icon Call &amp; coverage duties"
+              data-icon-name="clock-alert"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[17px] shrink-0 h-[17px]"
+            >
+              <path
+                d="M6.59326 0.60156q-0.99463 0.05811-1.92431 0.42383-0.92969 0.3623-1.7295 1.00488-0.16748 0.12646-0.47509 0.44092-0.30762 0.31445-0.43409 0.46826-0.95361 1.18945-1.28857 2.63184-0.37939 1.62354 0.11279 3.24707 0.46143 1.56885 1.6167 2.72412 1.15527 1.15527 2.72412 1.60303 1.97217 0.57422 3.91699-0.09912 0.37939-0.12305 0.52637-0.21534 0.14697-0.09228 0.21875-0.23242 0.08203-0.19482 0.04102-0.38965-0.08545-0.33838-0.40674-0.42041-0.11279-0.04101-0.21875-0.0205-0.10254 0.02051-0.31445 0.10253-1.71924 0.65967-3.4419 0.15381-1.32959-0.37598-2.30371-1.39111-0.97412-1.01514-1.30908-2.37207-0.23926-0.95361-0.11279-1.93115 0.12646-0.98096 0.60156-1.84912 0.57422-1.03564 1.52441-1.7295 0.95361-0.69385 2.11572-0.91601 0.43408-0.07178 0.98096-0.07178 0.30762 0 0.49561 0.01367 0.19141 0.01367 0.44433 0.05811 0.9502 0.18115 1.79785 0.70068 0.84766 0.51611 1.42188 1.28516 0.36231 0.49219 0.62891 1.06641 0.09912 0.19482 0.17431 0.29394 0.07861 0.0957 0.20508 0.13672 0.18115 0.07178 0.36914 0.02393 0.18799-0.05127 0.30762-0.20508 0.11963-0.15381 0.11963-0.34864 0-0.19824-0.22559-0.6289-0.78271-1.55518-2.21142-2.50537-1.42871-0.95361-3.16163-1.05274-0.39307-0.02734-0.78613 0z m0.25293 2.33789q-0.25293 0.08545-0.37939 0.30762l-0.04102 0.08545 0 3.83496 0.04102 0.08545q0.05811 0.0957 0.12646 0.15381 0.08545 0.06836 0.36572 0.22217l0.90918 0.46142q1.20312 0.60498 1.30225 0.63233 0.23926 0.06836 0.45459-0.05469 0.21533-0.12646 0.27344-0.3794 0.04102-0.18115-0.04102-0.37939-0.04443-0.0957-0.11621-0.15039-0.06836-0.05811-0.31787-0.18457l-1.83545-0.93652-0.01367-3.30518-0.04102-0.08545q-0.09912-0.18115-0.28027-0.2666-0.08545-0.04102-0.22559-0.04785-0.14014-0.00684-0.18115 0.00683z m4.63477 3.51368q-0.23926 0.08545-0.35205 0.33837l-0.04102 0.08204-0.01367 1.51416q0 1.18945 0.01367 1.44238 0.01367 0.24951 0.05469 0.3623 0.04443 0.06836 0.11963 0.14014 0.07861 0.06836 0.16064 0.11279 0.19824 0.08203 0.39307 0.03418 0.19482-0.04785 0.32129-0.21875l0.01367-0.01367q0.0581-0.08203 0.07178-0.15381 0.01367-0.11279 0.02734-0.43408l-0.01367-2.81299-0.04102-0.09912q-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02735z m0 5.25q-0.18457 0.0581-0.29053 0.21191-0.10254 0.15381-0.10254 0.33496 0 0.23926 0.17432 0.41357 0.17432 0.17432 0.42041 0.16065 0.24609-0.01367 0.3999-0.16748 0.09912-0.09912 0.12646-0.18115 0.02734-0.08545 0.02735-0.23926 0-0.15381-0.04102-0.23926-0.08545-0.18115-0.2666-0.2666-0.08545-0.04102-0.23242-0.05469-0.14697-0.01367-0.21533 0.02735z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Feature Text Call &amp; coverage duties"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Feature Title Call &amp; coverage duties"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Call &amp; coverage duties
+              </div>
+              <div
+                data-pencil-name="M Feature Desc Call &amp; coverage duties"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Unpaid call weekends buried in Exhibit B are pulled out and priced.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Feature Signing bonus clawback"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[12px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <svg
+              data-pencil-name="M Feature Icon Signing bonus clawback"
+              data-icon-name="undo-2"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[17px] shrink-0 h-[17px]"
+            >
+              <path
+                d="M5.09619 1.77734q-0.08545 0.01367-0.14014 0.05127-0.05469 0.03418-1.58251 1.57227-0.9502 0.93994-1.2544 1.24756-0.30078 0.30762-0.31445 0.3623-0.05469 0.09912-0.05469 0.23926 0 0.14014 0.04102 0.23926 0.02734 0.05469 0.32812 0.3623 0.3042 0.30762 1.2544 1.26123l0.23925 0.23584q0.76904 0.77246 0.99463 0.98096 0.29395 0.29395 0.40332 0.36572 0.08545 0.05469 0.19824 0.04102l0.04102 0q0.15381 0 0.25293-0.04102 0.19482-0.09912 0.27686-0.31445 0.08545-0.21875 0.01709-0.42725-0.02734-0.07178-0.18458-0.23925-0.15381-0.16748-0.86474-0.88184l-1.0083-1.0083 4.604 0.01367q0.43408 0.01367 0.5332 0.02734 0.82715 0.15381 1.39795 0.70752 0.57422 0.55371 0.75879 1.3501 0.02734 0.16748 0.04102 0.42725 0.01367 0.25977-0.01367 0.42724-0.11279 0.85449-0.70069 1.4834-0.57422 0.60156-1.44238 0.78613-0.08203 0.01367-1.35693 0.02735l-1.27491 0.01367-0.09912 0.04102q-0.23584 0.11279-0.32129 0.35205-0.08203 0.23584 0.02735 0.46142 0.04443 0.06836 0.11963 0.14014 0.07861 0.06836 0.16064 0.11279l0.09912 0.04102 1.17578 0.01367q1.17578 0 1.37061-0.01367 0.84082-0.08545 1.56201-0.5127 0.72119-0.42725 1.20996-1.12451 0.31104-0.46143 0.48535-1.01514 0.17432-0.55371 0.17432-1.11425 0-0.79639-0.31445-1.51075-0.31445-0.71436-0.88184-1.25439-0.56738-0.54004-1.30908-0.81689-0.29395-0.09912-0.68701-0.1709-0.11279-0.02734-0.53321-0.02735l-4.78515-0.01367 1.0083-1.0083q0.71094-0.72803 0.86474-0.88867 0.15723-0.16064 0.18458-0.23242 0.0957-0.27686-0.05811-0.52295-0.15381-0.24609-0.44775-0.25977-0.12646-0.01367-0.19483 0.01367z"
+                fill="#FF6A5A"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Feature Text Signing bonus clawback"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Feature Title Signing bonus clawback"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Signing bonus clawback
+              </div>
+              <div
+                data-pencil-name="M Feature Desc Signing bonus clawback"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Prorated repayment terms that quietly turn a bonus into a loan.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="m-testimonial" data-pencil-name="M Testimonial"
+        className="[box-sizing:content-box] w-[390px] h-[521.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill TESTIMONIALS"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label TESTIMONIALS"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            TESTIMONIALS
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Testi Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          Hear it from the physicians who signed.
+        </motion.div>
+        <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 15 }} viewport={{ once: true }} transition={{ duration: 0.45 }} 
+          data-pencil-name="M Testi Card"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-[16px] p-[18px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[14px]"
+        >
+          <div
+            data-pencil-name="M Testi Top"
+            className="box-border w-full h-fit shrink-0 flex flex-row gap-[11px] justify-start items-center"
+          >
+            <div
+              data-pencil-name="M Testi Avatar"
+              className="box-border w-[40px] shrink-0 h-[40px] flex flex-row gap-0 justify-start items-start bg-[url('https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMxOTQ1OTF8&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080')] bg-no-repeat bg-cover bg-center [outline:1px_solid_#3A4048] [outline-offset:-0.5px] rounded-[999px] overflow-hidden"
+            ></div>
+            <div
+              data-pencil-name="M Testi Author"
+              className="box-border w-fit shrink-0 h-fit flex flex-col gap-[2px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Testi Name"
+                className="text-[13px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Dr. Alina Reyes, MD
+              </div>
+              <div
+                data-pencil-name="M Testi Role"
+                className="text-[10.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                Family Medicine · Ohio
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Testi Stars"
+              className="box-border w-fit shrink-0 h-fit flex flex-row gap-[2px] justify-start items-start"
+            >
+              <svg
+                data-pencil-name="M Testi Star 0"
+                data-icon-name="star-fill"
+                data-icon-set="phosphor"
+                viewBox="0 0 14 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[10px] shrink-0 h-[10px]"
+              >
+                <path
+                  d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                  fill="#FF6A5A"
+                ></path>
+              </svg>
+              <svg
+                data-pencil-name="M Testi Star 1"
+                data-icon-name="star-fill"
+                data-icon-set="phosphor"
+                viewBox="0 0 14 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[10px] shrink-0 h-[10px]"
+              >
+                <path
+                  d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                  fill="#FF6A5A"
+                ></path>
+              </svg>
+              <svg
+                data-pencil-name="M Testi Star 2"
+                data-icon-name="star-fill"
+                data-icon-set="phosphor"
+                viewBox="0 0 14 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[10px] shrink-0 h-[10px]"
+              >
+                <path
+                  d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                  fill="#FF6A5A"
+                ></path>
+              </svg>
+              <svg
+                data-pencil-name="M Testi Star 3"
+                data-icon-name="star-fill"
+                data-icon-set="phosphor"
+                viewBox="0 0 14 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[10px] shrink-0 h-[10px]"
+              >
+                <path
+                  d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                  fill="#FF6A5A"
+                ></path>
+              </svg>
+              <svg
+                data-pencil-name="M Testi Star 4"
+                data-icon-name="star-fill"
+                data-icon-set="phosphor"
+                viewBox="0 0 14 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[10px] shrink-0 h-[10px]"
+              >
+                <path
+                  d="M12.79688 6.28906l-2.46094 2.07813 0.76562 3.17187q0.10938 0.4375-0.16406 0.79297-0.27344 0.35547-0.71094 0.35547-0.21875 0-0.4375-0.16406l-2.78906-1.75-2.57031 1.64062q-0.27344 0.16406-0.57422 0.16406-0.30078 0-0.54688-0.1914-0.24609-0.19141-0.35546-0.46485-0.10938-0.27344 0-0.60156l0.71093-2.89844-2.46094-2.13281q-0.21875-0.16406-0.30078-0.4375-0.08203-0.27344 0-0.51953 0.08203-0.24609 0.30078-0.4375 0.21875-0.19141 0.49219-0.19141l3.22656-0.21875 1.25782-3.0625q0.10938-0.21875 0.32812-0.38281 0.21875-0.16406 0.49219-0.16406 0.27344 0 0.49219 0.16406 0.21875 0.16406 0.32812 0.38281l1.20313 3.0625 3.28125 0.21875q0.27344 0 0.49219 0.19141 0.21875 0.19141 0.30078 0.4375 0.08203 0.24609 0 0.51953-0.08203 0.27344-0.30078 0.4375z"
+                  fill="#FF6A5A"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Testi Quote"
+            className="text-[16px]/[24px] box-border w-full text-[#E8E6E2] font-[Inter,system-ui,sans-serif] font-medium tracking-[-0.2px] text-left"
+          >
+            “My recruiter sent a 34-page agreement and gave me four days. RedlineMD flagged a
+            five-year tail provision worth $11,800 — and wrote the email that got it removed.”
+          </div>
+          <div
+            data-pencil-name="M Testi Stat"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[4px] p-[12px_14px] justify-start items-start bg-[#0B0C0F] [outline:1px_solid_#1E2228] [outline-offset:-0.5px] rounded-[9px]"
+          >
+            <div
+              data-pencil-name="M Testi Stat Value"
+              className="text-[21px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-0.7px] text-left [white-space:nowrap]"
+            >
+              $11,800
+            </div>
+            <div
+              data-pencil-name="M Testi Stat Label"
+              className="text-[10.5px]/[16px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              Tail exposure removed from the contract
+            </div>
+          </div>
+        </motion.div>
+      </div>
+      <div
+        id="m-how-it-works" data-pencil-name="M How It Works"
+        className="[box-sizing:content-box] w-[390px] h-[606.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill HOW IT WORKS"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label HOW IT WORKS"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            HOW IT WORKS
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M How Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          From signed PDF to counter-offer in a day.
+        </motion.div>
+        <div
+          data-pencil-name="M How Steps"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[6px_0px_0px_0px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Step 1"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[13px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <div
+              data-pencil-name="M Step Circle 1"
+              className="box-border w-[28px] shrink-0 h-[28px] flex flex-row gap-0 justify-center items-center bg-[#E03A2F1F] [outline:1px_solid_#E03A2F59] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Step Num 1"
+                className="text-[11.5px]/[normal] box-border text-[#FF6A5A] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                1
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Step Text 1"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Step Title 1"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Upload your contract
+              </div>
+              <div
+                data-pencil-name="M Step Body 1"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Drop the PDF you were emailed. Up to 30 pages, any specialty.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Step 2"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[13px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <div
+              data-pencil-name="M Step Circle 2"
+              className="box-border w-[28px] shrink-0 h-[28px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#FFFFFF14] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Step Num 2"
+                className="text-[11.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                2
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Step Text 2"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Step Title 2"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                The AI reads every clause
+              </div>
+              <div
+                data-pencil-name="M Step Body 2"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Trained on physician agreements to find tail, non-competes, call pay, and bonus
+                traps.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Step 3"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[13px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <div
+              data-pencil-name="M Step Circle 3"
+              className="box-border w-[28px] shrink-0 h-[28px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#FFFFFF14] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Step Num 3"
+                className="text-[11.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                3
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Step Text 3"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Step Title 3"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                A physician signs off
+              </div>
+              <div
+                data-pencil-name="M Step Body 3"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Every flag reviewed by a licensed physician before it reaches you.
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Step 4"
+            className="[box-sizing:content-box] w-[350px] h-[93.5px] shrink-0 flex flex-row gap-[13px] p-[16px_0px] justify-start items-start [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#171A1F] [margin:0px_0px_-0.5px_0px]"
+          >
+            <div
+              data-pencil-name="M Step Circle 4"
+              className="box-border w-[28px] shrink-0 h-[28px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#FFFFFF14] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Step Num 4"
+                className="text-[11.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                4
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Step Text 4"
+              className="box-border [flex:1_1_0] h-fit flex flex-col gap-[5px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Step Title 4"
+                className="text-[14px]/[normal] box-border w-full text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left"
+              >
+                Send the redline back
+              </div>
+              <div
+                data-pencil-name="M Step Body 4"
+                className="text-[12.5px]/[20px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+              >
+                Marked-up changes, a dollar value per risk, and a negotiation email.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="m-pricing" data-pencil-name="M Pricing"
+        className="[box-sizing:content-box] w-[390px] h-[1155.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill PRICING"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label PRICING"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            PRICING
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M Pricing Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          One price. One contract. One day.
+        </motion.div>
+        <div
+          data-pencil-name="M Pricing Sub"
+          className="text-[13.5px]/[22px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+        >
+          No subscription, no hourly meter. Compare what each path actually costs a new attending.
+        </div>
+        <div
+          data-pencil-name="M Pricing Cards"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] p-[6px_0px_0px_0px] justify-start items-start"
+        >
+          <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} viewport={{ once: true }} transition={{ duration: 0.45 }} 
+            data-pencil-name="M Plan RedlineMD"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[11px] p-[18px] justify-start items-start bg-[#12141A] [outline:1.5px_solid_#E03A2F66] [outline-offset:-0.75px] rounded-[14px]"
+          >
+            <div
+              data-pencil-name="M Plan Name Row RedlineMD"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Plan Name RedlineMD"
+                className="text-[14px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                RedlineMD
+              </div>
+              <div
+                data-pencil-name="M Plan Badge"
+                className="box-border w-fit shrink-0 h-fit flex flex-row gap-0 p-[3px_8px] justify-start items-start bg-[#E03A2F1F] rounded-[999px]"
+              >
+                <div
+                  data-pencil-name="M Plan Badge Label"
+                  className="text-[8px]/[normal] box-border text-[#FF6A5A] font-[Inter,system-ui,sans-serif] font-bold tracking-[0.8px] text-left [white-space:nowrap]"
+                >
+                  RECOMMENDED
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Price Row RedlineMD"
+              className="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-end"
+            >
+              <div
+                data-pencil-name="M Plan Price RedlineMD"
+                className="text-[34px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.4px] text-left [white-space:nowrap]"
+              >
+                $199
+              </div>
+              <div
+                data-pencil-name="M Plan Unit RedlineMD"
+                className="text-[11px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                flat, one-time
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Desc RedlineMD"
+              className="text-[12px]/[19px] box-border w-full text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              Everything you need to push back before the offer window closes.
+            </div>
+            <div
+              data-pencil-name="M Plan List RedlineMD"
+              className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[6px_0px_0px_0px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Plan Row Redline back in 24 hours"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Redline back in 24 hours"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#FF6A5A"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Redline back in 24 hours"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Redline back in 24 hours
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Every risk priced in dollars"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Every risk priced in dollars"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#FF6A5A"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Every risk priced in dollars"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Every risk priced in dollars
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Physician-attorney reviewed"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Physician-attorney reviewed"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#FF6A5A"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Physician-attorney reviewed"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Physician-attorney reviewed
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Negotiation email included"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Negotiation email included"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#FF6A5A"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Negotiation email included"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Negotiation email included
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Unlimited revisions for 30 days"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Unlimited revisions for 30 days"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#FF6A5A"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Unlimited revisions for 30 days"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Unlimited revisions for 30 days
+                </div>
+              </div>
+            </div>
+            <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} 
+              data-pencil-name="Btn Review my contract"
+              className="cursor-pointer box-border w-full h-fit shrink-0 flex flex-row gap-[9px] p-[14px_18px] justify-center items-center [background-image:linear-gradient(180deg,_#F04A3B_0%,_#D62E23_100%)] bg-no-repeat bg-[length:100%_100%] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="Btn Label Review my contract"
+                className="text-[14px]/[normal] box-border text-[#FFFFFF] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Review my contract
+              </div>
+              <svg
+                data-pencil-name="Btn Icon Review my contract"
+                data-icon-name="chevron-right"
+                data-icon-set="lucide"
+                viewBox="0 0 13.99993896484375 14"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                className="box-border w-[14px] shrink-0 h-[14px]"
+              >
+                <path
+                  d="M5.09619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.24268-0.04785 0.09229-0.05127 1.90381-1.8628 1.81494-1.81494 1.86279-1.9038 0.05127-0.09229 0.05127-0.25977 0-0.16748-0.04443-0.24951-0.04102-0.08545-1.85938-1.90723l-1.44238-1.42871q-0.33496-0.33496-0.46143-0.41699-0.09912-0.07178-0.19824-0.07178l-0.04102 0q-0.14014 0-0.18115 0.01367z"
+                  fill="#FFFFFF"
+                ></path>
+              </svg>
+            </motion.div>
+          </motion.div>
+          <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} viewport={{ once: true }} transition={{ duration: 0.45 }} 
+            data-pencil-name="M Plan Traditional attorney"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[11px] p-[18px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[14px]"
+          >
+            <div
+              data-pencil-name="M Plan Name Row Traditional attorney"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Plan Name Traditional attorney"
+                className="text-[14px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Traditional attorney
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Price Row Traditional attorney"
+              className="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-end"
+            >
+              <div
+                data-pencil-name="M Plan Price Traditional attorney"
+                className="text-[34px]/[normal] box-border text-[#9A9DA4] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.4px] text-left [white-space:nowrap]"
+              >
+                $500–900
+              </div>
+              <div
+                data-pencil-name="M Plan Unit Traditional attorney"
+                className="text-[11px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                per review
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan List Traditional attorney"
+              className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[6px_0px_0px_0px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Plan Row Full contract review"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Full contract review"
+                  data-icon-name="check"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M11.48096 2.95313q-0.07178 0.01367-0.12989 0.0581-0.05469 0.04102-3.07617 3.06592l-3.0249 3.00781-1.28857-1.28857q-1.28857-1.28516-1.38086-1.32618-0.08887-0.04443-0.22217-0.04443-0.1333 0-0.23242 0.0376-0.0957 0.03418-0.18799 0.11279-0.08887 0.0752-0.1333 0.1709-0.02734 0.07178-0.03418 0.11279-0.00684 0.04102-0.00684 0.14014l0 0.04102q-0.01367 0.11279 0.04102 0.19824 0.07178 0.10938 0.36572 0.40332 0.19482 0.21191 0.96729 0.98096l1.49707 1.48339q0.28027 0.2666 0.38964 0.33838 0.07178 0.05469 0.18457 0.04102l0.09571 0.01367q0.07178 0 0.14013-0.02734 0.08545-0.07178 0.32129-0.28711 0.23926-0.21875 0.79981-0.76221l2.2832-2.2832q2.08496-2.09863 2.7002-2.71387 0.61524-0.61865 0.64599-0.68701 0.04102-0.08545 0.04102-0.23926 0-0.09912-0.00684-0.14014-0.00684-0.04102-0.03418-0.11279-0.04443-0.08203-0.13672-0.16406-0.08887-0.08545-0.18115-0.11963-0.08887-0.0376-0.20849-0.0376-0.11963 0-0.18799 0.02734z"
+                    fill="#8CE0A8"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Full contract review"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#C4C7CC] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Full contract review
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row 2–3 week turnaround"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check 2–3 week turnaround"
+                  data-icon-name="x"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M3.34619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.23584-0.04102 0.08545-0.04443 1.66797-1.62353l1.58252-1.58252 1.58252 1.58252q1.58252 1.5791 1.66455 1.62353 0.08545 0.04102 0.23926 0.04102 0.15381 0 0.23584-0.03418 0.08545-0.0376 0.18115-0.1333 0.09912-0.09912 0.1333-0.18115 0.0376-0.08545 0.0376-0.23926 0-0.15381-0.04443-0.23584-0.04101-0.08545-1.62012-1.66797l-1.58252-1.58252 1.58252-1.58252q1.5791-1.58252 1.62012-1.66455 0.04443-0.08545 0.04443-0.25293 0-0.16748-0.04102-0.25293-0.09912-0.16748-0.28027-0.2666-0.05811-0.02734-0.09912-0.04102-0.04102-0.01367-0.15381-0.01367-0.11279 0-0.15381 0.01367-0.04101 0.01367-0.11279 0.04102-0.09912 0.05811-1.66455 1.62695l-1.56885 1.56543-2.82666-2.81299q-0.31104-0.29395-0.42041-0.37939-0.08545-0.05469-0.19824-0.05469l-0.02735 0q-0.14014 0-0.18115 0.01367z"
+                    fill="#4A4E55"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature 2–3 week turnaround"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#575B62] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  2–3 week turnaround
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Revisions billed hourly"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Revisions billed hourly"
+                  data-icon-name="x"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M3.34619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.23584-0.04102 0.08545-0.04443 1.66797-1.62353l1.58252-1.58252 1.58252 1.58252q1.58252 1.5791 1.66455 1.62353 0.08545 0.04102 0.23926 0.04102 0.15381 0 0.23584-0.03418 0.08545-0.0376 0.18115-0.1333 0.09912-0.09912 0.1333-0.18115 0.0376-0.08545 0.0376-0.23926 0-0.15381-0.04443-0.23584-0.04101-0.08545-1.62012-1.66797l-1.58252-1.58252 1.58252-1.58252q1.5791-1.58252 1.62012-1.66455 0.04443-0.08545 0.04443-0.25293 0-0.16748-0.04102-0.25293-0.09912-0.16748-0.28027-0.2666-0.05811-0.02734-0.09912-0.04102-0.04102-0.01367-0.15381-0.01367-0.11279 0-0.15381 0.01367-0.04101 0.01367-0.11279 0.04102-0.09912 0.05811-1.66455 1.62695l-1.56885 1.56543-2.82666-2.81299q-0.31104-0.29395-0.42041-0.37939-0.08545-0.05469-0.19824-0.05469l-0.02735 0q-0.14014 0-0.18115 0.01367z"
+                    fill="#4A4E55"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Revisions billed hourly"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#575B62] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Revisions billed hourly
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Ghost Traditional attorney"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[11px_14px] justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Plan Ghost Label Traditional attorney"
+                className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Book a consult
+              </div>
+            </div>
+          </motion.div>
+          <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} viewport={{ once: true }} transition={{ duration: 0.45 }} 
+            data-pencil-name="M Plan Sign as-is"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[11px] p-[18px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[14px]"
+          >
+            <div
+              data-pencil-name="M Plan Name Row Sign as-is"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+            >
+              <div
+                data-pencil-name="M Plan Name Sign as-is"
+                className="text-[14px]/[normal] box-border text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Sign as-is
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Price Row Sign as-is"
+              className="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-end"
+            >
+              <div
+                data-pencil-name="M Plan Price Sign as-is"
+                className="text-[34px]/[normal] box-border text-[#9A9DA4] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.4px] text-left [white-space:nowrap]"
+              >
+                $12,400
+              </div>
+              <div
+                data-pencil-name="M Plan Unit Sign as-is"
+                className="text-[11px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+              >
+                avg. tail exposure
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan List Sign as-is"
+              className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[6px_0px_0px_0px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="M Plan Row Tail policy becomes your bill"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Tail policy becomes your bill"
+                  data-icon-name="x"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M3.34619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.23584-0.04102 0.08545-0.04443 1.66797-1.62353l1.58252-1.58252 1.58252 1.58252q1.58252 1.5791 1.66455 1.62353 0.08545 0.04102 0.23926 0.04102 0.15381 0 0.23584-0.03418 0.08545-0.0376 0.18115-0.1333 0.09912-0.09912 0.1333-0.18115 0.0376-0.08545 0.0376-0.23926 0-0.15381-0.04443-0.23584-0.04101-0.08545-1.62012-1.66797l-1.58252-1.58252 1.58252-1.58252q1.5791-1.58252 1.62012-1.66455 0.04443-0.08545 0.04443-0.25293 0-0.16748-0.04102-0.25293-0.09912-0.16748-0.28027-0.2666-0.05811-0.02734-0.09912-0.04102-0.04102-0.01367-0.15381-0.01367-0.11279 0-0.15381 0.01367-0.04101 0.01367-0.11279 0.04102-0.09912 0.05811-1.66455 1.62695l-1.56885 1.56543-2.82666-2.81299q-0.31104-0.29395-0.42041-0.37939-0.08545-0.05469-0.19824-0.05469l-0.02735 0q-0.14014 0-0.18115 0.01367z"
+                    fill="#4A4E55"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Tail policy becomes your bill"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#575B62] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Tail policy becomes your bill
+                </div>
+              </div>
+              <div
+                data-pencil-name="M Plan Row Non-compete stays at 24 months"
+                className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+              >
+                <svg
+                  data-pencil-name="M Plan Check Non-compete stays at 24 months"
+                  data-icon-name="x"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[12px] shrink-0 h-[12px]"
+                >
+                  <path
+                    d="M3.34619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.23584-0.04102 0.08545-0.04443 1.66797-1.62353l1.58252-1.58252 1.58252 1.58252q1.58252 1.5791 1.66455 1.62353 0.08545 0.04102 0.23926 0.04102 0.15381 0 0.23584-0.03418 0.08545-0.0376 0.18115-0.1333 0.09912-0.09912 0.1333-0.18115 0.0376-0.08545 0.0376-0.23926 0-0.15381-0.04443-0.23584-0.04101-0.08545-1.62012-1.66797l-1.58252-1.58252 1.58252-1.58252q1.5791-1.58252 1.62012-1.66455 0.04443-0.08545 0.04443-0.25293 0-0.16748-0.04102-0.25293-0.09912-0.16748-0.28027-0.2666-0.05811-0.02734-0.09912-0.04102-0.04102-0.01367-0.15381-0.01367-0.11279 0-0.15381 0.01367-0.04101 0.01367-0.11279 0.04102-0.09912 0.05811-1.66455 1.62695l-1.56885 1.56543-2.82666-2.81299q-0.31104-0.29395-0.42041-0.37939-0.08545-0.05469-0.19824-0.05469l-0.02735 0q-0.14014 0-0.18115 0.01367z"
+                    fill="#4A4E55"
+                  ></path>
+                </svg>
+                <div
+                  data-pencil-name="M Plan Feature Non-compete stays at 24 months"
+                  className="text-[12px]/[18px] box-border [flex:1_1_0] text-[#575B62] font-[Inter,system-ui,sans-serif] font-normal text-left"
+                >
+                  Non-compete stays at 24 months
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="M Plan Ghost Sign as-is"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[11px_14px] justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+            >
+              <div
+                data-pencil-name="M Plan Ghost Label Sign as-is"
+                className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+              >
+                Nothing to pay
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        <div
+          data-pencil-name="M Pricing Note"
+          className="box-border w-full h-fit shrink-0 flex flex-row gap-[7px] p-[2px_0px_0px_0px] justify-center items-center"
+        >
+          <svg
+            data-pencil-name="M Pricing Note Icon"
+            data-icon-name="lock"
+            data-icon-set="lucide"
+            viewBox="0 0 13.99993896484375 14"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            className="box-border w-[11px] shrink-0 h-[11px]"
+          >
+            <path
+              d="M6.77441 0.60156q-0.72803 0.02734-1.38769 0.3794-0.65625 0.34863-1.12451 0.92285-0.46826 0.57422-0.64942 1.28857l0 0.01367q-0.07178 0.29395-0.08545 0.48536-0.01367 0.18799-0.02734 1.02539l0 1.10742-0.2666 0q-0.40674 0-0.63916 0.04443-0.229 0.04102-0.45117 0.15039-0.32471 0.16748-0.56397 0.44776-0.23584 0.28027-0.34863 0.64599l-0.05469 0.15381 0 4.7168 0.05469 0.15381q0.15723 0.51953 0.56055 0.86132 0.40674 0.3418 0.93994 0.39991 0.14014 0.02734 4.26904 0.02734 4.12891 0 4.26904-0.02734 0.30762-0.02734 0.58789-0.16748 0.32471-0.15381 0.56055-0.44092 0.23926-0.28711 0.35205-0.65283l0.05469-0.15381 0-4.7168-0.05469-0.15381q-0.11279-0.36572-0.35205-0.64599-0.23584-0.28027-0.56055-0.44776-0.22217-0.10938-0.45459-0.15039-0.229-0.04443-0.63574-0.04443l-0.2666 0 0-1.13477q-0.01367-0.81006-0.02734-0.99804-0.01367-0.19141-0.08545-0.47168l0-0.02735q-0.18115-0.71436-0.66651-1.30224-0.48193-0.58789-1.15185-0.93653-0.82715-0.40674-1.79444-0.35205z m0.70069 1.20313q0.75537 0.15381 1.2749 0.7417 0.3623 0.40674 0.50244 0.92627 0.05811 0.19482 0.06494 0.41357 0.00684 0.21533 0.00684 0.9707l0 0.96729-4.64844 0 0-1.06299q0-0.82715 0.01367-1.0083 0.01367-0.18457 0.09912-0.40674 0.22217-0.64258 0.74854-1.06982 0.52637-0.42725 1.19629-0.5127 0.14014-0.01367 0.3623 0 0.22559 0.01367 0.3794 0.04102z m3.85205 5.25q0.08203 0.04443 0.15723 0.12304 0.07861 0.0752 0.11279 0.15381 0.0376 0.0752 0.0581 0.19483 0.02051 0.11621 0.00684 2.19092l0 1.6372q0 0.3623-0.02734 0.48877-0.01367 0.08545-0.07178 0.14014l-0.01367 0.02734q-0.11279 0.12646-0.26661 0.19824l-0.0957 0.04102-8.37402 0-0.0957-0.04102q-0.15381-0.0581-0.26661-0.19824l-0.01367-0.02734q-0.05811-0.06836-0.07178-0.14014-0.02734-0.12646-0.02734-0.48877l0-1.65088q-0.01367-2.08838 0.01367-2.20117 0.01367-0.18115 0.1333-0.31445 0.11963-0.1333 0.28711-0.17432 0.06836-0.01367 4.25537-0.01367l4.20069 0.01367 0.09912 0.04102z"
+              fill="#6B6F76"
+            ></path>
+          </svg>
+          <div
+            data-pencil-name="M Pricing Note Text"
+            className="text-[11px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+          >
+            Secure checkout · $1,000 savings guarantee
+          </div>
+        </div>
+      </div>
+      <div
+        id="m-faq" data-pencil-name="M FAQ"
+        className="[box-sizing:content-box] w-[390px] h-[543.5px] shrink-0 flex flex-col gap-[18px] p-[52px_20px] justify-start items-start bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="Pill FAQ"
+          className="box-border w-fit h-fit shrink-0 flex flex-row gap-0 p-[6px_11px] justify-start items-start bg-[#FFFFFF05] [outline:1px_solid_#FFFFFF1F] [outline-offset:-0.5px] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Pill Label FAQ"
+            className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.2px] text-left [white-space:nowrap]"
+          >
+            FAQ
+          </div>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }} 
+          data-pencil-name="M FAQ Headline"
+          className="text-[27px]/[31px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.1px] text-left"
+        >
+          Questions before you send us a contract.
+        </motion.div>
+        <div
+          data-pencil-name="M FAQ List"
+          className="box-border w-full h-fit shrink-0 flex flex-col gap-[8px] p-[6px_0px_0px_0px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M FAQ Item Is an AI review enough for a legal contract?"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[14px_15px] justify-start items-start bg-[#101216] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[11px]"
+          >
+            <div
+              data-pencil-name="M FAQ Row Is an AI review enough for a legal contract?"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M FAQ Q Is an AI review enough for a legal contract?"
+                className="text-[13.5px]/[19px] box-border [flex:1_1_0] text-[#F6F5F3] font-[Inter,system-ui,sans-serif] font-medium text-left"
+              >
+                Is an AI review enough for a legal contract?
+              </div>
+              <div
+                data-pencil-name="M FAQ Toggle Is an AI review enough for a legal contract?"
+                className="box-border w-[22px] shrink-0 h-[22px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+              >
+                <svg
+                  data-pencil-name="M FAQ Toggle Icon Is an AI review enough for a legal contract?"
+                  data-icon-name="minus"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[11px] shrink-0 h-[11px]"
+                >
+                  <path
+                    d="M2.73096 6.45313q-0.23926 0.08545-0.34522 0.3247-0.10254 0.23584-0.00683 0.46143 0.05811 0.0957 0.14013 0.18115 0.08545 0.08203 0.18457 0.12647l0.09571 0.02734 8.40136 0 0.09571-0.02734q0.09912-0.04443 0.18115-0.12647 0.08545-0.08545 0.1333-0.18799 0.05127-0.10596 0.05127-0.23242 0-0.12646-0.04102-0.23926-0.09912-0.19482-0.29394-0.29394l-0.08545-0.04102-4.22803 0q-4.22803 0-4.28271 0.02735z"
+                    fill="#F6F5F3"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div
+              data-pencil-name="M FAQ A Is an AI review enough for a legal contract?"
+              className="text-[12px]/[20px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left"
+            >
+              RedlineMD is not a law firm. You get clause-level analysis priced in dollars, reviewed
+              by a licensed physician — so you know exactly which terms to push on.
+            </div>
+          </div>
+          <div
+            data-pencil-name="M FAQ Item What does the $199 cover?"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[14px_15px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[11px]"
+          >
+            <div
+              data-pencil-name="M FAQ Row What does the $199 cover?"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M FAQ Q What does the $199 cover?"
+                className="text-[13.5px]/[19px] box-border [flex:1_1_0] text-[#C9CCD1] font-[Inter,system-ui,sans-serif] font-medium text-left"
+              >
+                What does the $199 cover?
+              </div>
+              <div
+                data-pencil-name="M FAQ Toggle What does the $199 cover?"
+                className="box-border w-[22px] shrink-0 h-[22px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+              >
+                <svg
+                  data-pencil-name="M FAQ Toggle Icon What does the $199 cover?"
+                  data-icon-name="plus"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[11px] shrink-0 h-[11px]"
+                >
+                  <path
+                    d="M6.90088 2.35156q-0.0957 0.01367-0.17432 0.05127-0.0752 0.03418-0.15381 0.12647-0.0752 0.08887-0.11279 0.16748-0.03418 0.0752-0.03418 0.32812l0 3.40088-3.66748 0-0.08545 0.04102q-0.22217 0.11279-0.30078 0.33838-0.0752 0.22217 0.00684 0.43408 0.05811 0.0957 0.14013 0.18115 0.08545 0.08203 0.16748 0.11963 0.08545 0.03418 0.33838 0.03418l3.40088 0 0 3.40088q0 0.25293 0.03418 0.33838 0.0376 0.08203 0.11963 0.16748 0.08545 0.08203 0.18799 0.1333 0.10596 0.04785 0.23242 0.04785 0.12646 0 0.229-0.04785 0.10596-0.05127 0.18799-0.1333 0.08545-0.08545 0.11963-0.16748 0.0376-0.08545 0.0376-0.33838l0-3.40088 3.40088 0q0.25293 0 0.33496-0.03418 0.08545-0.0376 0.16748-0.11963 0.08545-0.08545 0.1333-0.18799 0.05127-0.10596 0.05127-0.23242 0-0.12646-0.04102-0.23926-0.09912-0.19482-0.29394-0.29394l-0.08545-0.04102-3.66748 0 0-3.38721q0-0.2666-0.02734-0.32128-0.07178-0.19824-0.25293-0.30079-0.18115-0.10596-0.39307-0.06494z"
+                    fill="#9A9DA4"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M FAQ Item How fast is turnaround?"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[14px_15px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[11px]"
+          >
+            <div
+              data-pencil-name="M FAQ Row How fast is turnaround?"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M FAQ Q How fast is turnaround?"
+                className="text-[13.5px]/[19px] box-border [flex:1_1_0] text-[#C9CCD1] font-[Inter,system-ui,sans-serif] font-medium text-left"
+              >
+                How fast is turnaround?
+              </div>
+              <div
+                data-pencil-name="M FAQ Toggle How fast is turnaround?"
+                className="box-border w-[22px] shrink-0 h-[22px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+              >
+                <svg
+                  data-pencil-name="M FAQ Toggle Icon How fast is turnaround?"
+                  data-icon-name="plus"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[11px] shrink-0 h-[11px]"
+                >
+                  <path
+                    d="M6.90088 2.35156q-0.0957 0.01367-0.17432 0.05127-0.0752 0.03418-0.15381 0.12647-0.0752 0.08887-0.11279 0.16748-0.03418 0.0752-0.03418 0.32812l0 3.40088-3.66748 0-0.08545 0.04102q-0.22217 0.11279-0.30078 0.33838-0.0752 0.22217 0.00684 0.43408 0.05811 0.0957 0.14013 0.18115 0.08545 0.08203 0.16748 0.11963 0.08545 0.03418 0.33838 0.03418l3.40088 0 0 3.40088q0 0.25293 0.03418 0.33838 0.0376 0.08203 0.11963 0.16748 0.08545 0.08203 0.18799 0.1333 0.10596 0.04785 0.23242 0.04785 0.12646 0 0.229-0.04785 0.10596-0.05127 0.18799-0.1333 0.08545-0.08545 0.11963-0.16748 0.0376-0.08545 0.0376-0.33838l0-3.40088 3.40088 0q0.25293 0 0.33496-0.03418 0.08545-0.0376 0.16748-0.11963 0.08545-0.08545 0.1333-0.18799 0.05127-0.10596 0.05127-0.23242 0-0.12646-0.04102-0.23926-0.09912-0.19482-0.29394-0.29394l-0.08545-0.04102-3.66748 0 0-3.38721q0-0.2666-0.02734-0.32128-0.07178-0.19824-0.25293-0.30079-0.18115-0.10596-0.39307-0.06494z"
+                    fill="#9A9DA4"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="M FAQ Item How is my data handled?"
+            className="box-border w-full h-fit shrink-0 flex flex-col gap-[9px] p-[14px_15px] justify-start items-start bg-[#0D0E11] [outline:1px_solid_#20242A] [outline-offset:-0.5px] rounded-[11px]"
+          >
+            <div
+              data-pencil-name="M FAQ Row How is my data handled?"
+              className="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] justify-between items-center"
+            >
+              <div
+                data-pencil-name="M FAQ Q How is my data handled?"
+                className="text-[13.5px]/[19px] box-border [flex:1_1_0] text-[#C9CCD1] font-[Inter,system-ui,sans-serif] font-medium text-left"
+              >
+                How is my data handled?
+              </div>
+              <div
+                data-pencil-name="M FAQ Toggle How is my data handled?"
+                className="box-border w-[22px] shrink-0 h-[22px] flex flex-row gap-0 justify-center items-center bg-[#FFFFFF08] [outline:1px_solid_#2A2F36] [outline-offset:-0.5px] rounded-[999px]"
+              >
+                <svg
+                  data-pencil-name="M FAQ Toggle Icon How is my data handled?"
+                  data-icon-name="plus"
+                  data-icon-set="lucide"
+                  viewBox="0 0 13.99993896484375 14"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="box-border w-[11px] shrink-0 h-[11px]"
+                >
+                  <path
+                    d="M6.90088 2.35156q-0.0957 0.01367-0.17432 0.05127-0.0752 0.03418-0.15381 0.12647-0.0752 0.08887-0.11279 0.16748-0.03418 0.0752-0.03418 0.32812l0 3.40088-3.66748 0-0.08545 0.04102q-0.22217 0.11279-0.30078 0.33838-0.0752 0.22217 0.00684 0.43408 0.05811 0.0957 0.14013 0.18115 0.08545 0.08203 0.16748 0.11963 0.08545 0.03418 0.33838 0.03418l3.40088 0 0 3.40088q0 0.25293 0.03418 0.33838 0.0376 0.08203 0.11963 0.16748 0.08545 0.08203 0.18799 0.1333 0.10596 0.04785 0.23242 0.04785 0.12646 0 0.229-0.04785 0.10596-0.05127 0.18799-0.1333 0.08545-0.08545 0.11963-0.16748 0.0376-0.08545 0.0376-0.33838l0-3.40088 3.40088 0q0.25293 0 0.33496-0.03418 0.08545-0.0376 0.16748-0.11963 0.08545-0.08545 0.1333-0.18799 0.05127-0.10596 0.05127-0.23242 0-0.12646-0.04102-0.23926-0.09912-0.19482-0.29394-0.29394l-0.08545-0.04102-3.66748 0 0-3.38721q0-0.2666-0.02734-0.32128-0.07178-0.19824-0.25293-0.30079-0.18115-0.10596-0.39307-0.06494z"
+                    fill="#9A9DA4"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="M Final CTA"
+        className="[box-sizing:content-box] w-[390px] h-[350.5px] shrink-0 flex flex-col gap-[16px] p-[52px_20px] justify-start items-center bg-[#08080A] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="M CTA Eyebrow"
+          className="text-[9.5px]/[normal] box-border text-[#B7BAC0] font-[Inter,system-ui,sans-serif] font-semibold tracking-[1.3px] text-left [white-space:nowrap]"
+        >
+          YOUR OFFER WINDOW IS SHORT
+        </div>
+        <div
+          data-pencil-name="M CTA Headline"
+          className="text-[32px]/[36px] box-border w-full text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-bold tracking-[-1.4px] text-center"
+        >
+          Sign with leverage, not hope.
+        </div>
+        <div
+          data-pencil-name="M CTA Sub"
+          className="text-[13px]/[21px] box-border w-full text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-center"
+        >
+          Upload your contract tonight. Read the redline tomorrow morning.
+        </div>
+        <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} 
+          data-pencil-name="Btn Review my contract — $199"
+          className="cursor-pointer box-border w-full h-fit shrink-0 flex flex-row gap-[9px] p-[14px_18px] justify-center items-center [background-image:linear-gradient(180deg,_#F04A3B_0%,_#D62E23_100%)] bg-no-repeat bg-[length:100%_100%] rounded-[999px]"
+        >
+          <div
+            data-pencil-name="Btn Label Review my contract — $199"
+            className="text-[14px]/[normal] box-border text-[#FFFFFF] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Review my contract — $199
+          </div>
+          <svg
+            data-pencil-name="Btn Icon Review my contract — $199"
+            data-icon-name="chevron-right"
+            data-icon-set="lucide"
+            viewBox="0 0 13.99993896484375 14"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            className="box-border w-[14px] shrink-0 h-[14px]"
+          >
+            <path
+              d="M5.09619 2.93945q-0.25293 0.08545-0.37939 0.30762-0.04102 0.08545-0.04102 0.25293 0 0.16748 0.04102 0.25293 0.04443 0.08203 1.62353 1.66455l1.58252 1.58252-1.58252 1.58252q-1.5791 1.58252-1.62353 1.66797-0.04102 0.08203-0.04102 0.23584 0 0.15381 0.03418 0.23926 0.0376 0.08203 0.1333 0.18115 0.09912 0.0957 0.18115 0.1333 0.08545 0.03418 0.23926 0.03418 0.15381 0 0.24268-0.04785 0.09229-0.05127 1.90381-1.8628 1.81494-1.81494 1.86279-1.9038 0.05127-0.09229 0.05127-0.25977 0-0.16748-0.04443-0.24951-0.04102-0.08545-1.85938-1.90723l-1.44238-1.42871q-0.33496-0.33496-0.46143-0.41699-0.09912-0.07178-0.19824-0.07178l-0.04102 0q-0.14014 0-0.18115 0.01367z"
+              fill="#FFFFFF"
+            ></path>
+          </svg>
+        </motion.div>
+        <div
+          data-pencil-name="M CTA Trust"
+          className="text-[10.5px]/[normal] box-border text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+        >
+          24-hour turnaround · physician-reviewed · guarantee
+        </div>
+      </div>
+      <div
+        data-pencil-name="M Footer"
+        className="[box-sizing:content-box] w-[390px] h-[289.5px] shrink-0 flex flex-col gap-[22px] p-[36px_20px_24px_20px] justify-start items-start bg-[#060608] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#171A1F] [margin:-0.5px_0px_0px_0px]"
+      >
+        <div
+          data-pencil-name="M Footer Brand"
+          className="box-border w-fit h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Footer Brand Row"
+            className="box-border w-fit h-fit shrink-0 flex flex-row gap-[7px] justify-start items-center"
+          >
+            <div
+              data-pencil-name="M Footer Wordmark"
+              className="text-[17px]/[normal] box-border text-[#F6F5F3] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px] text-left [white-space:nowrap]"
+            >
+              REDLINE
+            </div>
+            <div
+              data-pencil-name="M Footer Wordmark MD"
+              className="text-[17px]/[normal] box-border text-[#E03A2F] font-['Inter_Tight',system-ui,sans-serif] font-extrabold tracking-[-0.5px] text-left [white-space:nowrap]"
+            >
+              MD
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Footer Tagline"
+            className="text-[12px]/[19px] box-border w-[230px] text-[#6B6F76] font-[Inter,system-ui,sans-serif] font-normal text-left"
+          >
+            Contract review for physicians who plan to negotiate.
+          </div>
+        </div>
+        <div
+          data-pencil-name="M Footer Links"
+          className="box-border w-full h-fit shrink-0 flex flex-row gap-[40px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Footer Col PLATFORM"
+            className="box-border [flex:1_1_0] h-fit flex flex-col gap-[9px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="M Footer Head PLATFORM"
+              className="text-[9.5px]/[normal] box-border text-[#575B62] font-[Inter,system-ui,sans-serif] font-bold tracking-[1.2px] text-left [white-space:nowrap]"
+            >
+              PLATFORM
+            </div>
+            <div
+              data-pencil-name="M Footer Link How it works"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              How it works
+            </div>
+            <div
+              data-pencil-name="M Footer Link Pricing"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              Pricing
+            </div>
+            <div
+              data-pencil-name="M Footer Link Security"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              Security
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Footer Col COMPANY"
+            className="box-border [flex:1_1_0] h-fit flex flex-col gap-[9px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="M Footer Head COMPANY"
+              className="text-[9.5px]/[normal] box-border text-[#575B62] font-[Inter,system-ui,sans-serif] font-bold tracking-[1.2px] text-left [white-space:nowrap]"
+            >
+              COMPANY
+            </div>
+            <div
+              data-pencil-name="M Footer Link About"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              About
+            </div>
+            <div
+              data-pencil-name="M Footer Link Contact"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              Contact
+            </div>
+            <div
+              data-pencil-name="M Footer Link Privacy"
+              className="text-[12px]/[normal] box-border text-[#9A9DA4] font-[Inter,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              Privacy
+            </div>
+          </div>
+        </div>
+        <div
+          data-pencil-name="M Footer Legal"
+          className="text-[10.5px]/[17px] box-border w-full text-[#3F434A] font-[Inter,system-ui,sans-serif] font-normal text-left"
+        >
+          Not a law firm. Document analysis and physician-authored guidance, not legal advice. ©
+          2026 RedlineMD.
+        </div>
+      </div>
+      <div
+        data-pencil-name="M Trust Grid"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[8px] p-[26px_20px_0px_20px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="M Trust Row ISO 27001"
+          className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Trust ISO 27001"
+            className="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[11px_12px] justify-start items-center bg-[#0D0E11] [outline:1px_solid_#171A1F] [outline-offset:-0.5px] rounded-[9px]"
+          >
+            <svg
+              data-pencil-name="M Trust Icon ISO 27001"
+              data-icon-name="badge-check"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[13px] shrink-0 h-[13px]"
+            >
+              <path
+                d="M6.56592 0.61523q-0.4751 0.07178-0.90918 0.3042-0.43408 0.229-0.76904 0.57764l-0.1128 0.11279-0.22558 0q-0.37598 0-0.72803 0.08545-0.72803 0.18115-1.26807 0.68018-0.53662 0.49561-0.78955 1.19287-0.08203 0.25293-0.11279 0.4375-0.02734 0.18115-0.04102 0.44775l0 0.32129-0.09912 0.08203q-0.0957 0.08545-0.22217 0.23926-0.50586 0.60156-0.65966 1.37061-0.04102 0.21191-0.04102 0.5332 0 0.32129 0.04102 0.5332 0.15381 0.76904 0.65966 1.37061 0.12646 0.15381 0.22217 0.23926l0.09912 0.08203 0 0.32129q0.01367 0.2666 0.04102 0.45117 0.03076 0.18115 0.11279 0.43408 0.22559 0.61523 0.68701 1.09033 0.22217 0.22559 0.43067 0.37256 0.21191 0.14697 0.49219 0.2666 0.28027 0.11621 0.52294 0.16748 0.24609 0.04785 0.55713 0.06153l0.32129 0 0.15381 0.15381q0.64258 0.65967 1.59619 0.84082 0.18115 0.02734 0.48194 0.02734 0.30078 0 0.46826-0.02734 0.90918-0.16748 1.56885-0.81348l0.18115-0.18115 0.32129 0q0.23926-0.01367 0.36572-0.02735 0.12646-0.01367 0.30762-0.07177 0.65967-0.16748 1.16211-0.6084 0.50244-0.44092 0.76904-1.05616 0.23926-0.54688 0.23926-1.1621l0-0.23926 0.11279-0.1128q0.30762-0.29395 0.52978-0.69043 0.22559-0.3999 0.32471-0.83398 0.15381-0.72803-0.07861-1.45605-0.23242-0.72803-0.76221-1.23047l-0.12646-0.12647 0-0.23926q0-1.18945-0.81348-2.03027-0.34863-0.3623-0.78271-0.58789-0.34863-0.16748-0.65967-0.23584-0.30762-0.07178-0.6836-0.07178l-0.22558 0-0.1128-0.11279q-0.27686-0.30762-0.67675-0.52978-0.3999-0.22559-0.80664-0.30762-0.22217-0.05811-0.52979-0.06494-0.30762-0.00684-0.5332 0.0205z m0.75537 1.17579q0.32129 0.04443 0.6084 0.23242 0.28711 0.18799 0.51269 0.4956 0.15381 0.21191 0.32129 0.2666 0.09912 0.04102 0.16748 0.04102 0.07178 0 0.19824-0.01367 0.46143-0.08203 0.86475 0.04443 0.40674 0.12305 0.71436 0.43408 0.31104 0.30762 0.43408 0.7212 0.12646 0.41016 0.04443 0.85791-0.02734 0.21191 0.02734 0.37255 0.05469 0.16064 0.26661 0.31446 0.48877 0.35205 0.66992 0.86816 0.08545 0.25293 0.08545 0.57422 0 0.32129-0.08545 0.57422-0.19482 0.5332-0.68359 0.88183-0.19824 0.14014-0.25294 0.30079-0.05469 0.16064-0.02734 0.37255 0.06836 0.38965-0.02392 0.76221-0.08887 0.36914-0.31446 0.66309-0.41699 0.51953-1.06299 0.64599-0.11279 0.02734-0.30078 0.02051-0.18799-0.00684-0.34179-0.02051-0.25293-0.04102-0.39991 0.02051-0.14697 0.06152-0.31445 0.30078-0.29395 0.37939-0.70752 0.56738-0.41357 0.18799-0.86816 0.15381-0.45459-0.03418-0.84766-0.31445-0.23584-0.15381-0.44775-0.43408-0.14014-0.21191-0.29395-0.27344-0.15381-0.06152-0.37597-0.03418-0.35205 0.05469-0.59131 0.02734-0.58789-0.09912-0.99121-0.48876-0.646-0.63232-0.49219-1.56885 0.01367-0.16748 0.00683-0.25977-0.00684-0.09229-0.06152-0.18799-0.04102-0.08545-0.09912-0.14013-0.05469-0.05811-0.19482-0.15381-0.48877-0.36572-0.67334-0.99463-0.02734-0.12646-0.02735-0.42041 0-0.29395 0.02735-0.42041 0.18457-0.62891 0.65966-0.98096 0.23584-0.16748 0.29737-0.28369 0.06494-0.11963 0.07177-0.21191 0.00684-0.09229-0.00683-0.25977-0.08203-0.50244 0.07861-0.94336 0.16064-0.44092 0.54004-0.73486 0.33496-0.2666 0.75537-0.35205 0.10938-0.02734 0.31787-0.02735 0.21191 0 0.36573 0.02735 0.12646 0.01367 0.16748 0.01367 0.04443 0 0.11279-0.01367 0.14014-0.02734 0.22217-0.08887 0.08545-0.06494 0.18457-0.20508 0.25293-0.34863 0.56738-0.52978 0.31445-0.18457 0.74854-0.22559 0.16748-0.01367 0.44775 0.02735z m1.28857 3.47265q-0.06836 0.02734-0.12646 0.05127-0.05469 0.02051-1.06299 1.02539l-0.99463 0.99463-0.40674-0.40332q-0.2666-0.2666-0.3623-0.33838-0.12646-0.11279-0.19824-0.14013-0.06836-0.02734-0.19483-0.02735-0.12646 0-0.16748 0.01367-0.04102 0.01367-0.09912 0.04102-0.18115 0.09912-0.28027 0.2666-0.04102 0.08545-0.04102 0.25293l0 0.01367q0 0.14014 0.03418 0.21192 0.0376 0.06836 0.17774 0.22216 0.0957 0.11279 0.48876 0.50586l0.04102 0.04102q0.42041 0.42041 0.55371 0.54687 0.1333 0.12305 0.20166 0.15381 0.14014 0.06836 0.29395 0.05469 0.15381-0.01367 0.28027-0.09912 0.07178-0.05469 1.28857-1.27149 0.86816-0.86816 1.04932-1.06298 0.18457-0.19824 0.21191-0.27002 0.0957-0.27686-0.0581-0.52295-0.15381-0.24609-0.44775-0.25977-0.12646-0.01367-0.18116 0z"
+                fill="#5C6067"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Trust Label ISO 27001"
+              className="text-[10px]/[normal] box-border text-[#8C9098] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              ISO 27001
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Trust SOC 2 Type I"
+            className="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[11px_12px] justify-start items-center bg-[#0D0E11] [outline:1px_solid_#171A1F] [outline-offset:-0.5px] rounded-[9px]"
+          >
+            <svg
+              data-pencil-name="M Trust Icon SOC 2 Type I"
+              data-icon-name="badge-check"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[13px] shrink-0 h-[13px]"
+            >
+              <path
+                d="M6.56592 0.61523q-0.4751 0.07178-0.90918 0.3042-0.43408 0.229-0.76904 0.57764l-0.1128 0.11279-0.22558 0q-0.37598 0-0.72803 0.08545-0.72803 0.18115-1.26807 0.68018-0.53662 0.49561-0.78955 1.19287-0.08203 0.25293-0.11279 0.4375-0.02734 0.18115-0.04102 0.44775l0 0.32129-0.09912 0.08203q-0.0957 0.08545-0.22217 0.23926-0.50586 0.60156-0.65966 1.37061-0.04102 0.21191-0.04102 0.5332 0 0.32129 0.04102 0.5332 0.15381 0.76904 0.65966 1.37061 0.12646 0.15381 0.22217 0.23926l0.09912 0.08203 0 0.32129q0.01367 0.2666 0.04102 0.45117 0.03076 0.18115 0.11279 0.43408 0.22559 0.61523 0.68701 1.09033 0.22217 0.22559 0.43067 0.37256 0.21191 0.14697 0.49219 0.2666 0.28027 0.11621 0.52294 0.16748 0.24609 0.04785 0.55713 0.06153l0.32129 0 0.15381 0.15381q0.64258 0.65967 1.59619 0.84082 0.18115 0.02734 0.48194 0.02734 0.30078 0 0.46826-0.02734 0.90918-0.16748 1.56885-0.81348l0.18115-0.18115 0.32129 0q0.23926-0.01367 0.36572-0.02735 0.12646-0.01367 0.30762-0.07177 0.65967-0.16748 1.16211-0.6084 0.50244-0.44092 0.76904-1.05616 0.23926-0.54688 0.23926-1.1621l0-0.23926 0.11279-0.1128q0.30762-0.29395 0.52978-0.69043 0.22559-0.3999 0.32471-0.83398 0.15381-0.72803-0.07861-1.45605-0.23242-0.72803-0.76221-1.23047l-0.12646-0.12647 0-0.23926q0-1.18945-0.81348-2.03027-0.34863-0.3623-0.78271-0.58789-0.34863-0.16748-0.65967-0.23584-0.30762-0.07178-0.6836-0.07178l-0.22558 0-0.1128-0.11279q-0.27686-0.30762-0.67675-0.52978-0.3999-0.22559-0.80664-0.30762-0.22217-0.05811-0.52979-0.06494-0.30762-0.00684-0.5332 0.0205z m0.75537 1.17579q0.32129 0.04443 0.6084 0.23242 0.28711 0.18799 0.51269 0.4956 0.15381 0.21191 0.32129 0.2666 0.09912 0.04102 0.16748 0.04102 0.07178 0 0.19824-0.01367 0.46143-0.08203 0.86475 0.04443 0.40674 0.12305 0.71436 0.43408 0.31104 0.30762 0.43408 0.7212 0.12646 0.41016 0.04443 0.85791-0.02734 0.21191 0.02734 0.37255 0.05469 0.16064 0.26661 0.31446 0.48877 0.35205 0.66992 0.86816 0.08545 0.25293 0.08545 0.57422 0 0.32129-0.08545 0.57422-0.19482 0.5332-0.68359 0.88183-0.19824 0.14014-0.25294 0.30079-0.05469 0.16064-0.02734 0.37255 0.06836 0.38965-0.02392 0.76221-0.08887 0.36914-0.31446 0.66309-0.41699 0.51953-1.06299 0.64599-0.11279 0.02734-0.30078 0.02051-0.18799-0.00684-0.34179-0.02051-0.25293-0.04102-0.39991 0.02051-0.14697 0.06152-0.31445 0.30078-0.29395 0.37939-0.70752 0.56738-0.41357 0.18799-0.86816 0.15381-0.45459-0.03418-0.84766-0.31445-0.23584-0.15381-0.44775-0.43408-0.14014-0.21191-0.29395-0.27344-0.15381-0.06152-0.37597-0.03418-0.35205 0.05469-0.59131 0.02734-0.58789-0.09912-0.99121-0.48876-0.646-0.63232-0.49219-1.56885 0.01367-0.16748 0.00683-0.25977-0.00684-0.09229-0.06152-0.18799-0.04102-0.08545-0.09912-0.14013-0.05469-0.05811-0.19482-0.15381-0.48877-0.36572-0.67334-0.99463-0.02734-0.12646-0.02735-0.42041 0-0.29395 0.02735-0.42041 0.18457-0.62891 0.65966-0.98096 0.23584-0.16748 0.29737-0.28369 0.06494-0.11963 0.07177-0.21191 0.00684-0.09229-0.00683-0.25977-0.08203-0.50244 0.07861-0.94336 0.16064-0.44092 0.54004-0.73486 0.33496-0.2666 0.75537-0.35205 0.10938-0.02734 0.31787-0.02735 0.21191 0 0.36573 0.02735 0.12646 0.01367 0.16748 0.01367 0.04443 0 0.11279-0.01367 0.14014-0.02734 0.22217-0.08887 0.08545-0.06494 0.18457-0.20508 0.25293-0.34863 0.56738-0.52978 0.31445-0.18457 0.74854-0.22559 0.16748-0.01367 0.44775 0.02735z m1.28857 3.47265q-0.06836 0.02734-0.12646 0.05127-0.05469 0.02051-1.06299 1.02539l-0.99463 0.99463-0.40674-0.40332q-0.2666-0.2666-0.3623-0.33838-0.12646-0.11279-0.19824-0.14013-0.06836-0.02734-0.19483-0.02735-0.12646 0-0.16748 0.01367-0.04102 0.01367-0.09912 0.04102-0.18115 0.09912-0.28027 0.2666-0.04102 0.08545-0.04102 0.25293l0 0.01367q0 0.14014 0.03418 0.21192 0.0376 0.06836 0.17774 0.22216 0.0957 0.11279 0.48876 0.50586l0.04102 0.04102q0.42041 0.42041 0.55371 0.54687 0.1333 0.12305 0.20166 0.15381 0.14014 0.06836 0.29395 0.05469 0.15381-0.01367 0.28027-0.09912 0.07178-0.05469 1.28857-1.27149 0.86816-0.86816 1.04932-1.06298 0.18457-0.19824 0.21191-0.27002 0.0957-0.27686-0.0581-0.52295-0.15381-0.24609-0.44775-0.25977-0.12646-0.01367-0.18116 0z"
+                fill="#5C6067"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Trust Label SOC 2 Type I"
+              className="text-[10px]/[normal] box-border text-[#8C9098] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              SOC 2 Type I
+            </div>
+          </div>
+        </div>
+        <div
+          data-pencil-name="M Trust Row HIPAA"
+          className="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="M Trust HIPAA"
+            className="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[11px_12px] justify-start items-center bg-[#0D0E11] [outline:1px_solid_#171A1F] [outline-offset:-0.5px] rounded-[9px]"
+          >
+            <svg
+              data-pencil-name="M Trust Icon HIPAA"
+              data-icon-name="badge-check"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[13px] shrink-0 h-[13px]"
+            >
+              <path
+                d="M6.56592 0.61523q-0.4751 0.07178-0.90918 0.3042-0.43408 0.229-0.76904 0.57764l-0.1128 0.11279-0.22558 0q-0.37598 0-0.72803 0.08545-0.72803 0.18115-1.26807 0.68018-0.53662 0.49561-0.78955 1.19287-0.08203 0.25293-0.11279 0.4375-0.02734 0.18115-0.04102 0.44775l0 0.32129-0.09912 0.08203q-0.0957 0.08545-0.22217 0.23926-0.50586 0.60156-0.65966 1.37061-0.04102 0.21191-0.04102 0.5332 0 0.32129 0.04102 0.5332 0.15381 0.76904 0.65966 1.37061 0.12646 0.15381 0.22217 0.23926l0.09912 0.08203 0 0.32129q0.01367 0.2666 0.04102 0.45117 0.03076 0.18115 0.11279 0.43408 0.22559 0.61523 0.68701 1.09033 0.22217 0.22559 0.43067 0.37256 0.21191 0.14697 0.49219 0.2666 0.28027 0.11621 0.52294 0.16748 0.24609 0.04785 0.55713 0.06153l0.32129 0 0.15381 0.15381q0.64258 0.65967 1.59619 0.84082 0.18115 0.02734 0.48194 0.02734 0.30078 0 0.46826-0.02734 0.90918-0.16748 1.56885-0.81348l0.18115-0.18115 0.32129 0q0.23926-0.01367 0.36572-0.02735 0.12646-0.01367 0.30762-0.07177 0.65967-0.16748 1.16211-0.6084 0.50244-0.44092 0.76904-1.05616 0.23926-0.54688 0.23926-1.1621l0-0.23926 0.11279-0.1128q0.30762-0.29395 0.52978-0.69043 0.22559-0.3999 0.32471-0.83398 0.15381-0.72803-0.07861-1.45605-0.23242-0.72803-0.76221-1.23047l-0.12646-0.12647 0-0.23926q0-1.18945-0.81348-2.03027-0.34863-0.3623-0.78271-0.58789-0.34863-0.16748-0.65967-0.23584-0.30762-0.07178-0.6836-0.07178l-0.22558 0-0.1128-0.11279q-0.27686-0.30762-0.67675-0.52978-0.3999-0.22559-0.80664-0.30762-0.22217-0.05811-0.52979-0.06494-0.30762-0.00684-0.5332 0.0205z m0.75537 1.17579q0.32129 0.04443 0.6084 0.23242 0.28711 0.18799 0.51269 0.4956 0.15381 0.21191 0.32129 0.2666 0.09912 0.04102 0.16748 0.04102 0.07178 0 0.19824-0.01367 0.46143-0.08203 0.86475 0.04443 0.40674 0.12305 0.71436 0.43408 0.31104 0.30762 0.43408 0.7212 0.12646 0.41016 0.04443 0.85791-0.02734 0.21191 0.02734 0.37255 0.05469 0.16064 0.26661 0.31446 0.48877 0.35205 0.66992 0.86816 0.08545 0.25293 0.08545 0.57422 0 0.32129-0.08545 0.57422-0.19482 0.5332-0.68359 0.88183-0.19824 0.14014-0.25294 0.30079-0.05469 0.16064-0.02734 0.37255 0.06836 0.38965-0.02392 0.76221-0.08887 0.36914-0.31446 0.66309-0.41699 0.51953-1.06299 0.64599-0.11279 0.02734-0.30078 0.02051-0.18799-0.00684-0.34179-0.02051-0.25293-0.04102-0.39991 0.02051-0.14697 0.06152-0.31445 0.30078-0.29395 0.37939-0.70752 0.56738-0.41357 0.18799-0.86816 0.15381-0.45459-0.03418-0.84766-0.31445-0.23584-0.15381-0.44775-0.43408-0.14014-0.21191-0.29395-0.27344-0.15381-0.06152-0.37597-0.03418-0.35205 0.05469-0.59131 0.02734-0.58789-0.09912-0.99121-0.48876-0.646-0.63232-0.49219-1.56885 0.01367-0.16748 0.00683-0.25977-0.00684-0.09229-0.06152-0.18799-0.04102-0.08545-0.09912-0.14013-0.05469-0.05811-0.19482-0.15381-0.48877-0.36572-0.67334-0.99463-0.02734-0.12646-0.02735-0.42041 0-0.29395 0.02735-0.42041 0.18457-0.62891 0.65966-0.98096 0.23584-0.16748 0.29737-0.28369 0.06494-0.11963 0.07177-0.21191 0.00684-0.09229-0.00683-0.25977-0.08203-0.50244 0.07861-0.94336 0.16064-0.44092 0.54004-0.73486 0.33496-0.2666 0.75537-0.35205 0.10938-0.02734 0.31787-0.02735 0.21191 0 0.36573 0.02735 0.12646 0.01367 0.16748 0.01367 0.04443 0 0.11279-0.01367 0.14014-0.02734 0.22217-0.08887 0.08545-0.06494 0.18457-0.20508 0.25293-0.34863 0.56738-0.52978 0.31445-0.18457 0.74854-0.22559 0.16748-0.01367 0.44775 0.02735z m1.28857 3.47265q-0.06836 0.02734-0.12646 0.05127-0.05469 0.02051-1.06299 1.02539l-0.99463 0.99463-0.40674-0.40332q-0.2666-0.2666-0.3623-0.33838-0.12646-0.11279-0.19824-0.14013-0.06836-0.02734-0.19483-0.02735-0.12646 0-0.16748 0.01367-0.04102 0.01367-0.09912 0.04102-0.18115 0.09912-0.28027 0.2666-0.04102 0.08545-0.04102 0.25293l0 0.01367q0 0.14014 0.03418 0.21192 0.0376 0.06836 0.17774 0.22216 0.0957 0.11279 0.48876 0.50586l0.04102 0.04102q0.42041 0.42041 0.55371 0.54687 0.1333 0.12305 0.20166 0.15381 0.14014 0.06836 0.29395 0.05469 0.15381-0.01367 0.28027-0.09912 0.07178-0.05469 1.28857-1.27149 0.86816-0.86816 1.04932-1.06298 0.18457-0.19824 0.21191-0.27002 0.0957-0.27686-0.0581-0.52295-0.15381-0.24609-0.44775-0.25977-0.12646-0.01367-0.18116 0z"
+                fill="#5C6067"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Trust Label HIPAA"
+              className="text-[10px]/[normal] box-border text-[#8C9098] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              HIPAA
+            </div>
+          </div>
+          <div
+            data-pencil-name="M Trust Physician-reviewed"
+            className="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[11px_12px] justify-start items-center bg-[#0D0E11] [outline:1px_solid_#171A1F] [outline-offset:-0.5px] rounded-[9px]"
+          >
+            <svg
+              data-pencil-name="M Trust Icon Physician-reviewed"
+              data-icon-name="badge-check"
+              data-icon-set="lucide"
+              viewBox="0 0 13.99993896484375 14"
+              preserveAspectRatio="xMidYMid meet"
+              xmlns="http://www.w3.org/2000/svg"
+              className="box-border w-[13px] shrink-0 h-[13px]"
+            >
+              <path
+                d="M6.56592 0.61523q-0.4751 0.07178-0.90918 0.3042-0.43408 0.229-0.76904 0.57764l-0.1128 0.11279-0.22558 0q-0.37598 0-0.72803 0.08545-0.72803 0.18115-1.26807 0.68018-0.53662 0.49561-0.78955 1.19287-0.08203 0.25293-0.11279 0.4375-0.02734 0.18115-0.04102 0.44775l0 0.32129-0.09912 0.08203q-0.0957 0.08545-0.22217 0.23926-0.50586 0.60156-0.65966 1.37061-0.04102 0.21191-0.04102 0.5332 0 0.32129 0.04102 0.5332 0.15381 0.76904 0.65966 1.37061 0.12646 0.15381 0.22217 0.23926l0.09912 0.08203 0 0.32129q0.01367 0.2666 0.04102 0.45117 0.03076 0.18115 0.11279 0.43408 0.22559 0.61523 0.68701 1.09033 0.22217 0.22559 0.43067 0.37256 0.21191 0.14697 0.49219 0.2666 0.28027 0.11621 0.52294 0.16748 0.24609 0.04785 0.55713 0.06153l0.32129 0 0.15381 0.15381q0.64258 0.65967 1.59619 0.84082 0.18115 0.02734 0.48194 0.02734 0.30078 0 0.46826-0.02734 0.90918-0.16748 1.56885-0.81348l0.18115-0.18115 0.32129 0q0.23926-0.01367 0.36572-0.02735 0.12646-0.01367 0.30762-0.07177 0.65967-0.16748 1.16211-0.6084 0.50244-0.44092 0.76904-1.05616 0.23926-0.54688 0.23926-1.1621l0-0.23926 0.11279-0.1128q0.30762-0.29395 0.52978-0.69043 0.22559-0.3999 0.32471-0.83398 0.15381-0.72803-0.07861-1.45605-0.23242-0.72803-0.76221-1.23047l-0.12646-0.12647 0-0.23926q0-1.18945-0.81348-2.03027-0.34863-0.3623-0.78271-0.58789-0.34863-0.16748-0.65967-0.23584-0.30762-0.07178-0.6836-0.07178l-0.22558 0-0.1128-0.11279q-0.27686-0.30762-0.67675-0.52978-0.3999-0.22559-0.80664-0.30762-0.22217-0.05811-0.52979-0.06494-0.30762-0.00684-0.5332 0.0205z m0.75537 1.17579q0.32129 0.04443 0.6084 0.23242 0.28711 0.18799 0.51269 0.4956 0.15381 0.21191 0.32129 0.2666 0.09912 0.04102 0.16748 0.04102 0.07178 0 0.19824-0.01367 0.46143-0.08203 0.86475 0.04443 0.40674 0.12305 0.71436 0.43408 0.31104 0.30762 0.43408 0.7212 0.12646 0.41016 0.04443 0.85791-0.02734 0.21191 0.02734 0.37255 0.05469 0.16064 0.26661 0.31446 0.48877 0.35205 0.66992 0.86816 0.08545 0.25293 0.08545 0.57422 0 0.32129-0.08545 0.57422-0.19482 0.5332-0.68359 0.88183-0.19824 0.14014-0.25294 0.30079-0.05469 0.16064-0.02734 0.37255 0.06836 0.38965-0.02392 0.76221-0.08887 0.36914-0.31446 0.66309-0.41699 0.51953-1.06299 0.64599-0.11279 0.02734-0.30078 0.02051-0.18799-0.00684-0.34179-0.02051-0.25293-0.04102-0.39991 0.02051-0.14697 0.06152-0.31445 0.30078-0.29395 0.37939-0.70752 0.56738-0.41357 0.18799-0.86816 0.15381-0.45459-0.03418-0.84766-0.31445-0.23584-0.15381-0.44775-0.43408-0.14014-0.21191-0.29395-0.27344-0.15381-0.06152-0.37597-0.03418-0.35205 0.05469-0.59131 0.02734-0.58789-0.09912-0.99121-0.48876-0.646-0.63232-0.49219-1.56885 0.01367-0.16748 0.00683-0.25977-0.00684-0.09229-0.06152-0.18799-0.04102-0.08545-0.09912-0.14013-0.05469-0.05811-0.19482-0.15381-0.48877-0.36572-0.67334-0.99463-0.02734-0.12646-0.02735-0.42041 0-0.29395 0.02735-0.42041 0.18457-0.62891 0.65966-0.98096 0.23584-0.16748 0.29737-0.28369 0.06494-0.11963 0.07177-0.21191 0.00684-0.09229-0.00683-0.25977-0.08203-0.50244 0.07861-0.94336 0.16064-0.44092 0.54004-0.73486 0.33496-0.2666 0.75537-0.35205 0.10938-0.02734 0.31787-0.02735 0.21191 0 0.36573 0.02735 0.12646 0.01367 0.16748 0.01367 0.04443 0 0.11279-0.01367 0.14014-0.02734 0.22217-0.08887 0.08545-0.06494 0.18457-0.20508 0.25293-0.34863 0.56738-0.52978 0.31445-0.18457 0.74854-0.22559 0.16748-0.01367 0.44775 0.02735z m1.28857 3.47265q-0.06836 0.02734-0.12646 0.05127-0.05469 0.02051-1.06299 1.02539l-0.99463 0.99463-0.40674-0.40332q-0.2666-0.2666-0.3623-0.33838-0.12646-0.11279-0.19824-0.14013-0.06836-0.02734-0.19483-0.02735-0.12646 0-0.16748 0.01367-0.04102 0.01367-0.09912 0.04102-0.18115 0.09912-0.28027 0.2666-0.04102 0.08545-0.04102 0.25293l0 0.01367q0 0.14014 0.03418 0.21192 0.0376 0.06836 0.17774 0.22216 0.0957 0.11279 0.48876 0.50586l0.04102 0.04102q0.42041 0.42041 0.55371 0.54687 0.1333 0.12305 0.20166 0.15381 0.14014 0.06836 0.29395 0.05469 0.15381-0.01367 0.28027-0.09912 0.07178-0.05469 1.28857-1.27149 0.86816-0.86816 1.04932-1.06298 0.18457-0.19824 0.21191-0.27002 0.0957-0.27686-0.0581-0.52295-0.15381-0.24609-0.44775-0.25977-0.12646-0.01367-0.18116 0z"
+                fill="#5C6067"
+              ></path>
+            </svg>
+            <div
+              data-pencil-name="M Trust Label Physician-reviewed"
+              className="text-[10px]/[normal] box-border text-[#8C9098] font-[Inter,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              Physician-reviewed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  );
+}
